@@ -1,0 +1,1798 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)https://v1vrb.csb.app/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script src="./index.js.download"></script><script src="./preview-protocol.js.download" async="" defer=""></script>
+    <script crossorigin="" type="text/javascript" src="./vendors~embed~sandbox-startup.94f8a764c.chunk.js.download"></script>
+    <script crossorigin="" type="text/javascript" src="./default~app~embed~sandbox~sandbox-startup.3ff9f1307.chunk.js.download"></script>
+    <script crossorigin="" type="text/javascript" src="./sandbox-startup.fad738f3e.js.download"></script><link href="https://codesandbox.io/static/js/babel.7.21.8.min.js" rel="prefetch" as="script">
+
+<script src="./browserfs.min.js.download" type="text/javascript"></script>
+
+<script>
+  window.process = BrowserFS.BFSRequire('process');
+  window.Buffer = BrowserFS.BFSRequire('buffer').Buffer;
+</script>
+
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="theme-color" content="#000000">
+	<!--
+      manifest.json provides metadata used when your web app is added to the
+      homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
+    -->
+	<link rel="manifest" href="https://v1vrb.csb.app/manifest.json">
+	<link rel="shortcut icon" href="https://v1vrb.csb.app/favicon.ico">
+	<!--
+      Notice the use of  in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+	<title>React App</title>
+  <link rel="manifest" href="https://v1vrb.csb.app/manifest.json">
+  <script charset="utf-8" src="./vendors~react-devtools-backend.ea71e47fe.chunk.js.download"></script><style id="/src/styles.css:-css" type="text/css">body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: #f06a19;
+}
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.box {
+  background: transparent;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  bottom: 0;
+  cursor: pointer;
+  outline: none;
+}
+
+.box img {
+  margin: -5px;
+}
+
+.kuku {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  bottom: 0;
+  z-index: -1;
+}
+
+.lid {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  bottom: 5.8em;
+}
+
+.jump {
+  animation: 1s jump infinite alternate;
+}
+
+.move {
+  animation: 1s wiggle infinite linear;
+}
+
+.rotating {
+  animation: 1s rotating;
+}
+
+.rotated {
+  transform: rotate(145deg) translate(-70%, -170px);
+}
+
+@keyframes wiggle {
+  10%,
+  90% {
+    transform: translate(-50%) translate3d(-1px, 0, 0);
+  }
+
+  20%,
+  80% {
+    transform: translate(-50%) translate3d(2px, 0, 0);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translate(-50%) translate3d(-4px, 0, 0);
+  }
+
+  40%,
+  60% {
+    transform: translate(-50%) translate3d(4px, 0, 0);
+  }
+}
+
+@keyframes rotating {
+  0% {
+    transform: rotate(0deg) translate(-50%, 0);
+  }
+
+  100% {
+    transform: rotate(145deg) translate(-70%, -170px);
+  }
+}
+
+@keyframes jump {
+  from {
+    bottom: 0;
+  }
+  to {
+    bottom: 20em;
+  }
+}
+</style><style id="/src/confetti/confetti.scss:-css" type="text/css">.confetti {
+  width: 440px;
+  margin: 500px auto 0;
+  text-align: center;
+  padding: 10px 0;
+  cursor: pointer;
+  position: absolute;
+  bottom: 4em;
+  left: 50%;
+  transform: translate(-50%);
+}
+.confetti p {
+  position: absolute;
+  display: block;
+  left: 50%;
+  bottom: 0;
+  width: 5px;
+  height: 8px;
+  opacity: 0.8;
+}
+.confetti.animated p:nth-of-type(1) {
+  transform: skewY(44deg) rotate(61deg) translate(86px, -1665px) scale(0.5);
+  background: #00ffdd;
+  animation: 2s bang infinite;
+  animation-delay: 0.1s;
+  bottom: 9px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(2) {
+  transform: skewY(10deg) rotate(67deg) translate(35px, -635px) scale(0.3);
+  background: #eaff00;
+  animation: 2s bang infinite;
+  animation-delay: 0.05s;
+  bottom: 3px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(3) {
+  transform: skewY(49deg) rotate(309deg) translate(70px, -2065px) scale(0.3);
+  background: #fff200;
+  animation: 2s bang infinite;
+  animation-delay: 0.2s;
+  bottom: 7px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(4) {
+  transform: skewY(27deg) rotate(63deg) translate(91px, -2350px) scale(0.3);
+  background: #00ffa6;
+  animation: 2s bang infinite;
+  animation-delay: 0.05s;
+  bottom: 1px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(5) {
+  transform: skewY(23deg) rotate(114deg) translate(47px, -180px) scale(0.3);
+  background: #00ff73;
+  animation: 2s bang infinite;
+  animation-delay: 0.1s;
+  bottom: 3px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(6) {
+  transform: skewY(44deg) rotate(260deg) translate(52px, -1930px) scale(0.4);
+  background: #ff5100;
+  animation: 2s bang infinite;
+  animation-delay: 0.2s;
+  bottom: 1px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(7) {
+  transform: skewY(30deg) rotate(44deg) translate(65px, -475px) scale(0.5);
+  background: #e100ff;
+  animation: 2s bang infinite;
+  animation-delay: 0.15s;
+  bottom: 6px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(8) {
+  transform: skewY(44deg) rotate(181deg) translate(23px, -20px) scale(0.4);
+  background: #002bff;
+  animation: 2s bang infinite;
+  animation-delay: 0.1s;
+  bottom: 4px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(9) {
+  transform: skewY(22deg) rotate(262deg) translate(12px, -1025px) scale(0.5);
+  background: #ff1500;
+  animation: 2s bang infinite;
+  animation-delay: 0.15s;
+  bottom: 1px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(10) {
+  transform: skewY(21deg) rotate(272deg) translate(65px, -1135px) scale(0.5);
+  background: #9900ff;
+  animation: 2s bang infinite;
+  animation-delay: 0.2s;
+  bottom: 9px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(11) {
+  transform: skewY(4deg) rotate(217deg) translate(70px, -785px) scale(0.4);
+  background: #59ff00;
+  animation: 2s bang infinite;
+  animation-delay: 0.1s;
+  bottom: 9px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(12) {
+  transform: skewY(25deg) rotate(25deg) translate(29px, -1215px) scale(0.1);
+  background: #00ff48;
+  animation: 2s bang infinite;
+  animation-delay: 0.1s;
+  bottom: 1px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(13) {
+  transform: skewY(15deg) rotate(253deg) translate(95px, -400px) scale(0.3);
+  background: #73ff00;
+  animation: 2s bang infinite;
+  animation-delay: 0.2s;
+  bottom: 6px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(14) {
+  transform: skewY(9deg) rotate(8deg) translate(1px, -15px) scale(0.1);
+  background: #ff00ea;
+  animation: 2s bang infinite;
+  animation-delay: 0.25s;
+  bottom: 1px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(15) {
+  transform: skewY(6deg) rotate(57deg) translate(22px, -1500px) scale(0.4);
+  background: #ff8800;
+  animation: 2s bang infinite;
+  animation-delay: 0.2s;
+  bottom: 9px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(16) {
+  transform: skewY(34deg) rotate(20deg) translate(31px, -290px) scale(0.2);
+  background: #3cff00;
+  animation: 2s bang infinite;
+  animation-delay: 0.25s;
+  bottom: 5px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(17) {
+  transform: skewY(50deg) rotate(18deg) translate(6px, -910px) scale(0.5);
+  background: #09ff00;
+  animation: 2s bang infinite;
+  animation-delay: 0.05s;
+  bottom: 9px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(18) {
+  transform: skewY(29deg) rotate(276deg) translate(38px, -785px) scale(0.5);
+  background: #2b00ff;
+  animation: 2s bang infinite;
+  animation-delay: 0.15s;
+  bottom: 7px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(19) {
+  transform: skewY(40deg) rotate(45deg) translate(59px, -1685px) scale(0.3);
+  background: #d000ff;
+  animation: 2s bang infinite;
+  animation-delay: 0.1s;
+  bottom: 4px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(20) {
+  transform: skewY(45deg) rotate(312deg) translate(32px, -90px) scale(0.3);
+  background: #8400ff;
+  animation: 2s bang infinite;
+  animation-delay: 0.1s;
+  bottom: 6px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(21) {
+  transform: skewY(3deg) rotate(44deg) translate(60px, -230px) scale(0.5);
+  background: #95ff00;
+  animation: 2s bang infinite;
+  animation-delay: 0.25s;
+  bottom: 6px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(22) {
+  transform: skewY(24deg) rotate(203deg) translate(73px, -415px) scale(0.2);
+  background: #ff00ea;
+  animation: 2s bang infinite;
+  animation-delay: 0.05s;
+  bottom: 2px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(23) {
+  transform: skewY(3deg) rotate(48deg) translate(73px, -335px) scale(0.2);
+  background: #91ff00;
+  animation: 2s bang infinite;
+  animation-delay: 0.25s;
+  bottom: 2px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(24) {
+  transform: skewY(14deg) rotate(194deg) translate(36px, -460px) scale(0.5);
+  background: #d9ff00;
+  animation: 2s bang infinite;
+  animation-delay: 0.05s;
+  bottom: 5px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(25) {
+  transform: skewY(37deg) rotate(4deg) translate(46px, -1325px) scale(0.3);
+  background: #0033ff;
+  animation: 2s bang infinite;
+  animation-delay: 0.1s;
+  bottom: 9px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(26) {
+  transform: skewY(16deg) rotate(20deg) translate(24px, -360px) scale(0.4);
+  background: #84ff00;
+  animation: 2s bang infinite;
+  animation-delay: 0.1s;
+  bottom: 8px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(27) {
+  transform: skewY(40deg) rotate(26deg) translate(74px, -280px) scale(0.4);
+  background: #00e1ff;
+  animation: 2s bang infinite;
+  animation-delay: 0.05s;
+  bottom: 6px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(28) {
+  transform: skewY(8deg) rotate(77deg) translate(63px, -1215px) scale(0.2);
+  background: #d900ff;
+  animation: 2s bang infinite;
+  animation-delay: 0.05s;
+  bottom: 5px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(29) {
+  transform: skewY(15deg) rotate(279deg) translate(69px, -225px) scale(0.5);
+  background: #00fbff;
+  animation: 2s bang infinite;
+  animation-delay: 0.2s;
+  bottom: 9px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(30) {
+  transform: skewY(24deg) rotate(343deg) translate(74px, -1225px) scale(0.3);
+  background: #6aff00;
+  animation: 2s bang infinite;
+  animation-delay: 0.25s;
+  bottom: 7px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(31) {
+  transform: skewY(4deg) rotate(74deg) translate(86px, -1785px) scale(0.4);
+  background: #8cff00;
+  animation: 2s bang infinite;
+  animation-delay: 0.1s;
+  bottom: 6px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(32) {
+  transform: skewY(17deg) rotate(207deg) translate(75px, -655px) scale(0.1);
+  background: #ff5900;
+  animation: 2s bang infinite;
+  animation-delay: 0.2s;
+  bottom: 10px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(33) {
+  transform: skewY(39deg) rotate(26deg) translate(58px, -430px) scale(0.5);
+  background: #5eff00;
+  animation: 2s bang infinite;
+  animation-delay: 0.1s;
+  bottom: 9px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(34) {
+  transform: skewY(10deg) rotate(194deg) translate(26px, -460px) scale(0.1);
+  background: deepskyblue;
+  animation: 2s bang infinite;
+  animation-delay: 0.25s;
+  bottom: 8px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(35) {
+  transform: skewY(18deg) rotate(190deg) translate(51px, -640px) scale(0.1);
+  background: #ff001a;
+  animation: 2s bang infinite;
+  animation-delay: 0.15s;
+  bottom: 5px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(36) {
+  transform: skewY(42deg) rotate(40deg) translate(91px, -1690px) scale(0.3);
+  background: #2fff00;
+  animation: 2s bang infinite;
+  animation-delay: 0.25s;
+  bottom: 6px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(37) {
+  transform: skewY(37deg) rotate(85deg) translate(26px, -290px) scale(0.4);
+  background: #2b00ff;
+  animation: 2s bang infinite;
+  animation-delay: 0.1s;
+  bottom: 6px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(38) {
+  transform: skewY(11deg) rotate(145deg) translate(65px, -640px) scale(0.5);
+  background: #ff006a;
+  animation: 2s bang infinite;
+  animation-delay: 0.1s;
+  bottom: 8px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(39) {
+  transform: skewY(13deg) rotate(152deg) translate(79px, -385px) scale(0.3);
+  background: #5eff00;
+  animation: 2s bang infinite;
+  animation-delay: 0.1s;
+  bottom: 6px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(40) {
+  transform: skewY(24deg) rotate(15deg) translate(7px, -2115px) scale(0.3);
+  background: #00ffe6;
+  animation: 2s bang infinite;
+  animation-delay: 0.05s;
+  bottom: 7px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(41) {
+  transform: skewY(1deg) rotate(120deg) translate(20px, -2255px) scale(0.3);
+  background: #ff009d;
+  animation: 2s bang infinite;
+  animation-delay: 0.2s;
+  bottom: 10px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(42) {
+  transform: skewY(17deg) rotate(158deg) translate(24px, -400px) scale(0.1);
+  background: #ff4800;
+  animation: 2s bang infinite;
+  animation-delay: 0.2s;
+  bottom: 7px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(43) {
+  transform: skewY(8deg) rotate(262deg) translate(5px, -1745px) scale(0.4);
+  background: #0099ff;
+  animation: 2s bang infinite;
+  animation-delay: 0.2s;
+  bottom: 7px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(44) {
+  transform: skewY(33deg) rotate(227deg) translate(99px, -310px) scale(0.1);
+  background: #00ff95;
+  animation: 2s bang infinite;
+  animation-delay: 0.05s;
+  bottom: 1px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(45) {
+  transform: skewY(33deg) rotate(42deg) translate(79px, -1360px) scale(0.4);
+  background: #00ff88;
+  animation: 2s bang infinite;
+  animation-delay: 0.1s;
+  bottom: 8px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(46) {
+  transform: skewY(5deg) rotate(116deg) translate(82px, -35px) scale(0.1);
+  background: #ffaa00;
+  animation: 2s bang infinite;
+  animation-delay: 0.2s;
+  bottom: 9px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(47) {
+  transform: skewY(48deg) rotate(57deg) translate(61px, -1080px) scale(0.2);
+  background: #00ff73;
+  animation: 2s bang infinite;
+  animation-delay: 0.25s;
+  bottom: 7px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(48) {
+  transform: skewY(37deg) rotate(1deg) translate(67px, -2410px) scale(0.1);
+  background: #0037ff;
+  animation: 2s bang infinite;
+  animation-delay: 0.1s;
+  bottom: 8px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(49) {
+  transform: skewY(37deg) rotate(359deg) translate(37px, -1225px) scale(0.3);
+  background: #1100ff;
+  animation: 2s bang infinite;
+  animation-delay: 0.25s;
+  bottom: 3px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(50) {
+  transform: skewY(31deg) rotate(296deg) translate(39px, -930px) scale(0.1);
+  background: #0026ff;
+  animation: 2s bang infinite;
+  animation-delay: 0.2s;
+  bottom: 4px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(51) {
+  transform: skewY(28deg) rotate(352deg) translate(63px, -1960px) scale(0.4);
+  background: #ffdd00;
+  animation: 2s bang infinite;
+  animation-delay: 0.25s;
+  bottom: 7px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(52) {
+  transform: skewY(1deg) rotate(336deg) translate(29px, -120px) scale(0.1);
+  background: #fb00ff;
+  animation: 2s bang infinite;
+  animation-delay: 0.15s;
+  bottom: 4px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(53) {
+  transform: skewY(45deg) rotate(286deg) translate(84px, -40px) scale(0.3);
+  background: #ff9500;
+  animation: 2s bang infinite;
+  animation-delay: 0.1s;
+  bottom: 5px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(54) {
+  transform: skewY(40deg) rotate(114deg) translate(4px, -425px) scale(0.3);
+  background: #00ff04;
+  animation: 2s bang infinite;
+  animation-delay: 0.25s;
+  bottom: 7px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(55) {
+  transform: skewY(40deg) rotate(143deg) translate(10px, -1485px) scale(0.5);
+  background: #d500ff;
+  animation: 2s bang infinite;
+  animation-delay: 0.2s;
+  bottom: 9px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(56) {
+  transform: skewY(18deg) rotate(103deg) translate(4px, -980px) scale(0.1);
+  background: #ff8400;
+  animation: 2s bang infinite;
+  animation-delay: 0.1s;
+  bottom: 2px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(57) {
+  transform: skewY(7deg) rotate(258deg) translate(46px, -1315px) scale(0.3);
+  background: #ff0022;
+  animation: 2s bang infinite;
+  animation-delay: 0.25s;
+  bottom: 9px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(58) {
+  transform: skewY(11deg) rotate(81deg) translate(26px, -435px) scale(0.2);
+  background: #ff00e1;
+  animation: 2s bang infinite;
+  animation-delay: 0.15s;
+  bottom: 6px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(59) {
+  transform: skewY(50deg) rotate(118deg) translate(45px, -2200px) scale(0.4);
+  background: #ff00a6;
+  animation: 2s bang infinite;
+  animation-delay: 0.1s;
+  bottom: 4px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(60) {
+  transform: skewY(40deg) rotate(143deg) translate(38px, -900px) scale(0.1);
+  background: #00ff88;
+  animation: 2s bang infinite;
+  animation-delay: 0.1s;
+  bottom: 7px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(61) {
+  transform: skewY(29deg) rotate(231deg) translate(45px, -145px) scale(0.4);
+  background: #ff00ea;
+  animation: 2s bang infinite;
+  animation-delay: 0.25s;
+  bottom: 5px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(62) {
+  transform: skewY(33deg) rotate(311deg) translate(79px, -15px) scale(0.4);
+  background: #ffdd00;
+  animation: 2s bang infinite;
+  animation-delay: 0.05s;
+  bottom: 4px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(63) {
+  transform: skewY(46deg) rotate(351deg) translate(37px, -100px) scale(0.2);
+  background: #00ffbb;
+  animation: 2s bang infinite;
+  animation-delay: 0.25s;
+  bottom: 3px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(64) {
+  transform: skewY(47deg) rotate(41deg) translate(24px, -200px) scale(0.2);
+  background: #00ffee;
+  animation: 2s bang infinite;
+  animation-delay: 0.05s;
+  bottom: 7px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(65) {
+  transform: skewY(43deg) rotate(34deg) translate(29px, -1835px) scale(0.2);
+  background: #4000ff;
+  animation: 2s bang infinite;
+  animation-delay: 0.15s;
+  bottom: 10px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(66) {
+  transform: skewY(26deg) rotate(127deg) translate(58px, -1895px) scale(0.5);
+  background: #ff0022;
+  animation: 2s bang infinite;
+  animation-delay: 0.05s;
+  bottom: 2px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(67) {
+  transform: skewY(39deg) rotate(143deg) translate(84px, -510px) scale(0.2);
+  background: #1eff00;
+  animation: 2s bang infinite;
+  animation-delay: 0.15s;
+  bottom: 7px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(68) {
+  transform: skewY(27deg) rotate(73deg) translate(92px, -1620px) scale(0.3);
+  background: #0044ff;
+  animation: 2s bang infinite;
+  animation-delay: 0.1s;
+  bottom: 10px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(69) {
+  transform: skewY(16deg) rotate(20deg) translate(82px, -110px) scale(0.3);
+  background: #ff00f7;
+  animation: 2s bang infinite;
+  animation-delay: 0.25s;
+  bottom: 10px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(70) {
+  transform: skewY(25deg) rotate(253deg) translate(62px, -1420px) scale(0.1);
+  background: #ff006f;
+  animation: 2s bang infinite;
+  animation-delay: 0.15s;
+  bottom: 2px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(71) {
+  transform: skewY(47deg) rotate(351deg) translate(58px, -2080px) scale(0.2);
+  background: #e6ff00;
+  animation: 2s bang infinite;
+  animation-delay: 0.25s;
+  bottom: 5px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(72) {
+  transform: skewY(27deg) rotate(51deg) translate(6px, -2185px) scale(0.4);
+  background: #ffe600;
+  animation: 2s bang infinite;
+  animation-delay: 0.15s;
+  bottom: 10px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(73) {
+  transform: skewY(35deg) rotate(189deg) translate(56px, -2010px) scale(0.1);
+  background: #aa00ff;
+  animation: 2s bang infinite;
+  animation-delay: 0.1s;
+  bottom: 1px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(74) {
+  transform: skewY(9deg) rotate(276deg) translate(65px, -650px) scale(0.2);
+  background: #1aff00;
+  animation: 2s bang infinite;
+  animation-delay: 0.15s;
+  bottom: 9px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(75) {
+  transform: skewY(11deg) rotate(319deg) translate(84px, -2305px) scale(0.5);
+  background: #006aff;
+  animation: 2s bang infinite;
+  animation-delay: 0.05s;
+  bottom: 7px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(76) {
+  transform: skewY(46deg) rotate(352deg) translate(86px, -145px) scale(0.1);
+  background: #0033ff;
+  animation: 2s bang infinite;
+  animation-delay: 0.15s;
+  bottom: 5px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(77) {
+  transform: skewY(46deg) rotate(157deg) translate(35px, -2055px) scale(0.4);
+  background: #00ff22;
+  animation: 2s bang infinite;
+  animation-delay: 0.1s;
+  bottom: 7px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(78) {
+  transform: skewY(43deg) rotate(38deg) translate(55px, -2480px) scale(0.2);
+  background: #6f00ff;
+  animation: 2s bang infinite;
+  animation-delay: 0.2s;
+  bottom: 3px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(79) {
+  transform: skewY(50deg) rotate(275deg) translate(47px, -1030px) scale(0.1);
+  background: #ff0077;
+  animation: 2s bang infinite;
+  animation-delay: 0.15s;
+  bottom: 10px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(80) {
+  transform: skewY(43deg) rotate(303deg) translate(44px, -1540px) scale(0.4);
+  background: #ff00dd;
+  animation: 2s bang infinite;
+  animation-delay: 0.1s;
+  bottom: 4px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(81) {
+  transform: skewY(33deg) rotate(225deg) translate(12px, -1450px) scale(0.2);
+  background: #ff00d5;
+  animation: 2s bang infinite;
+  animation-delay: 0.1s;
+  bottom: 9px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(82) {
+  transform: skewY(48deg) rotate(347deg) translate(69px, -1780px) scale(0.3);
+  background: #ff00d0;
+  animation: 2s bang infinite;
+  animation-delay: 0.25s;
+  bottom: 2px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(83) {
+  transform: skewY(42deg) rotate(71deg) translate(99px, -1940px) scale(0.2);
+  background: #bb00ff;
+  animation: 2s bang infinite;
+  animation-delay: 0.15s;
+  bottom: 10px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(84) {
+  transform: skewY(24deg) rotate(15deg) translate(8px, -1690px) scale(0.5);
+  background: #6aff00;
+  animation: 2s bang infinite;
+  animation-delay: 0.25s;
+  bottom: 1px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(85) {
+  transform: skewY(47deg) rotate(171deg) translate(50px, -2420px) scale(0.3);
+  background: #ff005e;
+  animation: 2s bang infinite;
+  animation-delay: 0.2s;
+  bottom: 10px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(86) {
+  transform: skewY(42deg) rotate(16deg) translate(98px, -585px) scale(0.2);
+  background: #ff5e00;
+  animation: 2s bang infinite;
+  animation-delay: 0.1s;
+  bottom: 7px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(87) {
+  transform: skewY(31deg) rotate(103deg) translate(83px, -2370px) scale(0.1);
+  background: #00f2ff;
+  animation: 2s bang infinite;
+  animation-delay: 0.15s;
+  bottom: 4px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(88) {
+  transform: skewY(28deg) rotate(278deg) translate(3px, -1170px) scale(0.5);
+  background: #00ff84;
+  animation: 2s bang infinite;
+  animation-delay: 0.15s;
+  bottom: 9px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(89) {
+  transform: skewY(41deg) rotate(151deg) translate(1px, -1725px) scale(0.5);
+  background: #ff7700;
+  animation: 2s bang infinite;
+  animation-delay: 0.05s;
+  bottom: 1px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(90) {
+  transform: skewY(29deg) rotate(79deg) translate(61px, -2275px) scale(0.2);
+  background: #006fff;
+  animation: 2s bang infinite;
+  animation-delay: 0.05s;
+  bottom: 7px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(91) {
+  transform: skewY(25deg) rotate(225deg) translate(88px, -755px) scale(0.3);
+  background: #00ff8c;
+  animation: 2s bang infinite;
+  animation-delay: 0.05s;
+  bottom: 7px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(92) {
+  transform: skewY(23deg) rotate(237deg) translate(41px, -2225px) scale(0.3);
+  background: #001eff;
+  animation: 2s bang infinite;
+  animation-delay: 0.1s;
+  bottom: 1px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(93) {
+  transform: skewY(22deg) rotate(329deg) translate(81px, -685px) scale(0.2);
+  background: #00ff80;
+  animation: 2s bang infinite;
+  animation-delay: 0.05s;
+  bottom: 10px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(94) {
+  transform: skewY(20deg) rotate(53deg) translate(87px, -1345px) scale(0.2);
+  background: #00ff33;
+  animation: 2s bang infinite;
+  animation-delay: 0.2s;
+  bottom: 5px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(95) {
+  transform: skewY(20deg) rotate(272deg) translate(68px, -1460px) scale(0.3);
+  background: #ff8000;
+  animation: 2s bang infinite;
+  animation-delay: 0.1s;
+  bottom: 10px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(96) {
+  transform: skewY(36deg) rotate(186deg) translate(38px, -2025px) scale(0.4);
+  background: #3cff00;
+  animation: 2s bang infinite;
+  animation-delay: 0.25s;
+  bottom: 2px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(97) {
+  transform: skewY(35deg) rotate(190deg) translate(83px, -2170px) scale(0.2);
+  background: #00f7ff;
+  animation: 2s bang infinite;
+  animation-delay: 0.25s;
+  bottom: 5px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(98) {
+  transform: skewY(24deg) rotate(234deg) translate(8px, -2385px) scale(0.4);
+  background: #0026ff;
+  animation: 2s bang infinite;
+  animation-delay: 0.05s;
+  bottom: 1px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(99) {
+  transform: skewY(47deg) rotate(126deg) translate(40px, -1645px) scale(0.1);
+  background: #ff00fb;
+  animation: 2s bang infinite;
+  animation-delay: 0.25s;
+  bottom: 7px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(100) {
+  transform: skewY(30deg) rotate(147deg) translate(14px, -1035px) scale(0.3);
+  background: #00ff1e;
+  animation: 2s bang infinite;
+  animation-delay: 0.2s;
+  bottom: 6px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(101) {
+  transform: skewY(13deg) rotate(290deg) translate(51px, -1430px) scale(0.5);
+  background: #ffea00;
+  animation: 2s bang infinite;
+  animation-delay: 0.2s;
+  bottom: 9px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(102) {
+  transform: skewY(35deg) rotate(140deg) translate(63px, -590px) scale(0.5);
+  background: #04ff00;
+  animation: 2s bang infinite;
+  animation-delay: 0.25s;
+  bottom: 7px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(103) {
+  transform: skewY(17deg) rotate(331deg) translate(94px, -1520px) scale(0.1);
+  background: #84ff00;
+  animation: 2s bang infinite;
+  animation-delay: 0.25s;
+  bottom: 1px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(104) {
+  transform: skewY(10deg) rotate(150deg) translate(62px, -875px) scale(0.3);
+  background: #ff00c8;
+  animation: 2s bang infinite;
+  animation-delay: 0.1s;
+  bottom: 6px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(105) {
+  transform: skewY(23deg) rotate(212deg) translate(100px, -1150px) scale(0.5);
+  background: #ff0900;
+  animation: 2s bang infinite;
+  animation-delay: 0.15s;
+  bottom: 5px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(106) {
+  transform: skewY(1deg) rotate(140deg) translate(53px, -2150px) scale(0.3);
+  background: #00ff2f;
+  animation: 2s bang infinite;
+  animation-delay: 0.25s;
+  bottom: 3px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(107) {
+  transform: skewY(4deg) rotate(316deg) translate(45px, -135px) scale(0.2);
+  background: #3c00ff;
+  animation: 2s bang infinite;
+  animation-delay: 0.15s;
+  bottom: 9px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(108) {
+  transform: skewY(30deg) rotate(255deg) translate(83px, -335px) scale(0.2);
+  background: #001eff;
+  animation: 2s bang infinite;
+  animation-delay: 0.15s;
+  bottom: 7px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(109) {
+  transform: skewY(18deg) rotate(190deg) translate(66px, -2125px) scale(0.4);
+  background: #1a00ff;
+  animation: 2s bang infinite;
+  animation-delay: 0.05s;
+  bottom: 4px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(110) {
+  transform: skewY(25deg) rotate(116deg) translate(44px, -2110px) scale(0.1);
+  background: #ffa600;
+  animation: 2s bang infinite;
+  animation-delay: 0.15s;
+  bottom: 1px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(111) {
+  transform: skewY(36deg) rotate(229deg) translate(86px, -700px) scale(0.3);
+  background: #0009ff;
+  animation: 2s bang infinite;
+  animation-delay: 0.15s;
+  bottom: 4px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(112) {
+  transform: skewY(48deg) rotate(321deg) translate(53px, -1420px) scale(0.3);
+  background: #0051ff;
+  animation: 2s bang infinite;
+  animation-delay: 0.2s;
+  bottom: 6px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(113) {
+  transform: skewY(19deg) rotate(81deg) translate(66px, -225px) scale(0.4);
+  background: #ff0009;
+  animation: 2s bang infinite;
+  animation-delay: 0.1s;
+  bottom: 10px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(114) {
+  transform: skewY(7deg) rotate(177deg) translate(55px, -255px) scale(0.5);
+  background: #ffaa00;
+  animation: 2s bang infinite;
+  animation-delay: 0.25s;
+  bottom: 6px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(115) {
+  transform: skewY(31deg) rotate(182deg) translate(40px, -1005px) scale(0.1);
+  background: #ff002f;
+  animation: 2s bang infinite;
+  animation-delay: 0.25s;
+  bottom: 1px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(116) {
+  transform: skewY(24deg) rotate(4deg) translate(60px, -1995px) scale(0.1);
+  background: #ff00d5;
+  animation: 2s bang infinite;
+  animation-delay: 0.1s;
+  bottom: 6px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(117) {
+  transform: skewY(28deg) rotate(227deg) translate(82px, -850px) scale(0.1);
+  background: #00ff66;
+  animation: 2s bang infinite;
+  animation-delay: 0.25s;
+  bottom: 2px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(118) {
+  transform: skewY(44deg) rotate(331deg) translate(71px, -1445px) scale(0.2);
+  background: #00ff66;
+  animation: 2s bang infinite;
+  animation-delay: 0.25s;
+  bottom: 10px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(119) {
+  transform: skewY(15deg) rotate(294deg) translate(30px, -795px) scale(0.4);
+  background: #ff4d00;
+  animation: 2s bang infinite;
+  animation-delay: 0.05s;
+  bottom: 6px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(120) {
+  transform: skewY(39deg) rotate(94deg) translate(35px, -300px) scale(0.2);
+  background: #00b3ff;
+  animation: 2s bang infinite;
+  animation-delay: 0.15s;
+  bottom: 10px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(121) {
+  transform: skewY(34deg) rotate(285deg) translate(69px, -1235px) scale(0.4);
+  background: #00ff15;
+  animation: 2s bang infinite;
+  animation-delay: 0.05s;
+  bottom: 9px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(122) {
+  transform: skewY(9deg) rotate(89deg) translate(52px, -1025px) scale(0.1);
+  background: aqua;
+  animation: 2s bang infinite;
+  animation-delay: 0.1s;
+  bottom: 2px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(123) {
+  transform: skewY(30deg) rotate(182deg) translate(78px, -1805px) scale(0.2);
+  background: #009dff;
+  animation: 2s bang infinite;
+  animation-delay: 0.05s;
+  bottom: 7px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(124) {
+  transform: skewY(34deg) rotate(304deg) translate(6px, -1125px) scale(0.5);
+  background: #00ffc8;
+  animation: 2s bang infinite;
+  animation-delay: 0.05s;
+  bottom: 4px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(125) {
+  transform: skewY(4deg) rotate(179deg) translate(68px, -1820px) scale(0.1);
+  background: #d500ff;
+  animation: 2s bang infinite;
+  animation-delay: 0.2s;
+  bottom: 9px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(126) {
+  transform: skewY(35deg) rotate(221deg) translate(35px, -2070px) scale(0.5);
+  background: #ffa200;
+  animation: 2s bang infinite;
+  animation-delay: 0.2s;
+  bottom: 3px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(127) {
+  transform: skewY(17deg) rotate(73deg) translate(72px, -1110px) scale(0.5);
+  background: #00fbff;
+  animation: 2s bang infinite;
+  animation-delay: 0.05s;
+  bottom: 1px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(128) {
+  transform: skewY(24deg) rotate(223deg) translate(24px, -1955px) scale(0.2);
+  background: #00fff7;
+  animation: 2s bang infinite;
+  animation-delay: 0.1s;
+  bottom: 6px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(129) {
+  transform: skewY(38deg) rotate(121deg) translate(70px, -280px) scale(0.1);
+  background: #6fff00;
+  animation: 2s bang infinite;
+  animation-delay: 0.05s;
+  bottom: 4px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(130) {
+  transform: skewY(30deg) rotate(148deg) translate(58px, -2325px) scale(0.1);
+  background: #ff0040;
+  animation: 2s bang infinite;
+  animation-delay: 0.1s;
+  bottom: 5px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(131) {
+  transform: skewY(25deg) rotate(237deg) translate(95px, -1285px) scale(0.1);
+  background: #2fff00;
+  animation: 2s bang infinite;
+  animation-delay: 0.05s;
+  bottom: 5px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(132) {
+  transform: skewY(26deg) rotate(233deg) translate(12px, -140px) scale(0.2);
+  background: #0037ff;
+  animation: 2s bang infinite;
+  animation-delay: 0.2s;
+  bottom: 4px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(133) {
+  transform: skewY(45deg) rotate(21deg) translate(2px, -5px) scale(0.3);
+  background: #008cff;
+  animation: 2s bang infinite;
+  animation-delay: 0.05s;
+  bottom: 9px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(134) {
+  transform: skewY(48deg) rotate(113deg) translate(74px, -740px) scale(0.2);
+  background: #e1ff00;
+  animation: 2s bang infinite;
+  animation-delay: 0.05s;
+  bottom: 3px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(135) {
+  transform: skewY(24deg) rotate(152deg) translate(19px, -300px) scale(0.5);
+  background: #ffc800;
+  animation: 2s bang infinite;
+  animation-delay: 0.2s;
+  bottom: 3px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(136) {
+  transform: skewY(37deg) rotate(325deg) translate(75px, -670px) scale(0.5);
+  background: #f200ff;
+  animation: 2s bang infinite;
+  animation-delay: 0.2s;
+  bottom: 5px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(137) {
+  transform: skewY(24deg) rotate(323deg) translate(18px, -540px) scale(0.2);
+  background: #6a00ff;
+  animation: 2s bang infinite;
+  animation-delay: 0.25s;
+  bottom: 10px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(138) {
+  transform: skewY(29deg) rotate(241deg) translate(46px, -1445px) scale(0.2);
+  background: #ff9500;
+  animation: 2s bang infinite;
+  animation-delay: 0.1s;
+  bottom: 10px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(139) {
+  transform: skewY(35deg) rotate(277deg) translate(51px, -1575px) scale(0.1);
+  background: #ff00bb;
+  animation: 2s bang infinite;
+  animation-delay: 0.2s;
+  bottom: 6px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(140) {
+  transform: skewY(3deg) rotate(202deg) translate(15px, -1990px) scale(0.4);
+  background: #ff007b;
+  animation: 2s bang infinite;
+  animation-delay: 0.05s;
+  bottom: 8px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(141) {
+  transform: skewY(8deg) rotate(307deg) translate(99px, -1905px) scale(0.2);
+  background: #3c00ff;
+  animation: 2s bang infinite;
+  animation-delay: 0.15s;
+  bottom: 4px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(142) {
+  transform: skewY(6deg) rotate(336deg) translate(77px, -765px) scale(0.1);
+  background: #0099ff;
+  animation: 2s bang infinite;
+  animation-delay: 0.25s;
+  bottom: 9px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(143) {
+  transform: skewY(43deg) rotate(268deg) translate(12px, -1785px) scale(0.1);
+  background: #ff0062;
+  animation: 2s bang infinite;
+  animation-delay: 0.15s;
+  bottom: 8px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(144) {
+  transform: skewY(32deg) rotate(279deg) translate(5px, -2145px) scale(0.2);
+  background: #7bff00;
+  animation: 2s bang infinite;
+  animation-delay: 0.25s;
+  bottom: 1px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(145) {
+  transform: skewY(25deg) rotate(324deg) translate(76px, -1420px) scale(0.5);
+  background: #ff00b7;
+  animation: 2s bang infinite;
+  animation-delay: 0.2s;
+  bottom: 3px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(146) {
+  transform: skewY(34deg) rotate(44deg) translate(32px, -255px) scale(0.5);
+  background: #3c00ff;
+  animation: 2s bang infinite;
+  animation-delay: 0.2s;
+  bottom: 1px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(147) {
+  transform: skewY(25deg) rotate(248deg) translate(23px, -175px) scale(0.5);
+  background: #00ffcc;
+  animation: 2s bang infinite;
+  animation-delay: 0.1s;
+  bottom: 5px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(148) {
+  transform: skewY(34deg) rotate(211deg) translate(87px, -2040px) scale(0.3);
+  background: #00fbff;
+  animation: 2s bang infinite;
+  animation-delay: 0.1s;
+  bottom: 7px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(149) {
+  transform: skewY(24deg) rotate(105deg) translate(69px, -1950px) scale(0.4);
+  background: yellow;
+  animation: 2s bang infinite;
+  animation-delay: 0.1s;
+  bottom: 7px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(150) {
+  transform: skewY(42deg) rotate(106deg) translate(13px, -250px) scale(0.2);
+  background: #ff6600;
+  animation: 2s bang infinite;
+  animation-delay: 0.1s;
+  bottom: 10px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(151) {
+  transform: skewY(42deg) rotate(291deg) translate(41px, -565px) scale(0.3);
+  background: #4000ff;
+  animation: 2s bang infinite;
+  animation-delay: 0.05s;
+  bottom: 9px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(152) {
+  transform: skewY(20deg) rotate(339deg) translate(72px, -2395px) scale(0.3);
+  background: #0077ff;
+  animation: 2s bang infinite;
+  animation-delay: 0.15s;
+  bottom: 9px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(153) {
+  transform: skewY(47deg) rotate(253deg) translate(88px, -795px) scale(0.4);
+  background: #1aff00;
+  animation: 2s bang infinite;
+  animation-delay: 0.05s;
+  bottom: 10px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(154) {
+  transform: skewY(22deg) rotate(286deg) translate(98px, -1970px) scale(0.4);
+  background: #d0ff00;
+  animation: 2s bang infinite;
+  animation-delay: 0.25s;
+  bottom: 6px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(155) {
+  transform: skewY(41deg) rotate(146deg) translate(57px, -1440px) scale(0.4);
+  background: #d500ff;
+  animation: 2s bang infinite;
+  animation-delay: 0.05s;
+  bottom: 7px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(156) {
+  transform: skewY(35deg) rotate(130deg) translate(14px, -40px) scale(0.4);
+  background: #fff700;
+  animation: 2s bang infinite;
+  animation-delay: 0.1s;
+  bottom: 4px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(157) {
+  transform: skewY(22deg) rotate(275deg) translate(41px, -1480px) scale(0.2);
+  background: #001aff;
+  animation: 2s bang infinite;
+  animation-delay: 0.15s;
+  bottom: 5px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(158) {
+  transform: skewY(23deg) rotate(102deg) translate(43px, -1730px) scale(0.1);
+  background: #66ff00;
+  animation: 2s bang infinite;
+  animation-delay: 0.15s;
+  bottom: 3px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(159) {
+  transform: skewY(13deg) rotate(156deg) translate(10px, -1905px) scale(0.5);
+  background: #ff0073;
+  animation: 2s bang infinite;
+  animation-delay: 0.2s;
+  bottom: 3px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(160) {
+  transform: skewY(35deg) rotate(118deg) translate(16px, -2350px) scale(0.5);
+  background: #005eff;
+  animation: 2s bang infinite;
+  animation-delay: 0.25s;
+  bottom: 10px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(161) {
+  transform: skewY(24deg) rotate(338deg) translate(72px, -15px) scale(0.2);
+  background: #40ff00;
+  animation: 2s bang infinite;
+  animation-delay: 0.1s;
+  bottom: 6px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(162) {
+  transform: skewY(18deg) rotate(284deg) translate(28px, -265px) scale(0.1);
+  background: #ff2b00;
+  animation: 2s bang infinite;
+  animation-delay: 0.1s;
+  bottom: 7px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(163) {
+  transform: skewY(32deg) rotate(124deg) translate(21px, -435px) scale(0.5);
+  background: #ff004d;
+  animation: 2s bang infinite;
+  animation-delay: 0.05s;
+  bottom: 1px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(164) {
+  transform: skewY(30deg) rotate(180deg) translate(91px, -1200px) scale(0.1);
+  background: #ff0091;
+  animation: 2s bang infinite;
+  animation-delay: 0.1s;
+  bottom: 5px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(165) {
+  transform: skewY(14deg) rotate(191deg) translate(100px, -2145px) scale(0.1);
+  background: #00e1ff;
+  animation: 2s bang infinite;
+  animation-delay: 0.15s;
+  bottom: 6px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(166) {
+  transform: skewY(32deg) rotate(76deg) translate(38px, -1270px) scale(0.5);
+  background: #ffae00;
+  animation: 2s bang infinite;
+  animation-delay: 0.2s;
+  bottom: 7px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(167) {
+  transform: skewY(10deg) rotate(66deg) translate(56px, -2440px) scale(0.3);
+  background: #09ff00;
+  animation: 2s bang infinite;
+  animation-delay: 0.15s;
+  bottom: 2px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(168) {
+  transform: skewY(14deg) rotate(181deg) translate(7px, -1065px) scale(0.2);
+  background: #d000ff;
+  animation: 2s bang infinite;
+  animation-delay: 0.1s;
+  bottom: 9px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(169) {
+  transform: skewY(26deg) rotate(170deg) translate(17px, -200px) scale(0.1);
+  background: #ff2b00;
+  animation: 2s bang infinite;
+  animation-delay: 0.05s;
+  bottom: 7px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(170) {
+  transform: skewY(45deg) rotate(199deg) translate(27px, -1280px) scale(0.5);
+  background: #0088ff;
+  animation: 2s bang infinite;
+  animation-delay: 0.25s;
+  bottom: 10px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(171) {
+  transform: skewY(26deg) rotate(315deg) translate(3px, -1830px) scale(0.1);
+  background: #ff007b;
+  animation: 2s bang infinite;
+  animation-delay: 0.15s;
+  bottom: 8px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(172) {
+  transform: skewY(17deg) rotate(22deg) translate(33px, -1010px) scale(0.2);
+  background: #ff003c;
+  animation: 2s bang infinite;
+  animation-delay: 0.05s;
+  bottom: 7px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(173) {
+  transform: skewY(12deg) rotate(286deg) translate(39px, -1185px) scale(0.5);
+  background: #00ff3c;
+  animation: 2s bang infinite;
+  animation-delay: 0.05s;
+  bottom: 6px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(174) {
+  transform: skewY(35deg) rotate(224deg) translate(89px, -2475px) scale(0.1);
+  background: #6aff00;
+  animation: 2s bang infinite;
+  animation-delay: 0.1s;
+  bottom: 1px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(175) {
+  transform: skewY(8deg) rotate(350deg) translate(91px, -1810px) scale(0.5);
+  background: #ff8400;
+  animation: 2s bang infinite;
+  animation-delay: 0.2s;
+  bottom: 4px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(176) {
+  transform: skewY(44deg) rotate(307deg) translate(98px, -825px) scale(0.2);
+  background: #ff2200;
+  animation: 2s bang infinite;
+  animation-delay: 0.15s;
+  bottom: 5px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(177) {
+  transform: skewY(39deg) rotate(78deg) translate(91px, -1700px) scale(0.1);
+  background: #8400ff;
+  animation: 2s bang infinite;
+  animation-delay: 0.2s;
+  bottom: 5px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(178) {
+  transform: skewY(34deg) rotate(213deg) translate(2px, -1265px) scale(0.1);
+  background: #ff00bf;
+  animation: 2s bang infinite;
+  animation-delay: 0.15s;
+  bottom: 5px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(179) {
+  transform: skewY(25deg) rotate(94deg) translate(66px, -2180px) scale(0.3);
+  background: #00ff1e;
+  animation: 2s bang infinite;
+  animation-delay: 0.1s;
+  bottom: 4px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(180) {
+  transform: skewY(40deg) rotate(360deg) translate(69px, -1825px) scale(0.1);
+  background: #ff6f00;
+  animation: 2s bang infinite;
+  animation-delay: 0.05s;
+  bottom: 7px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(181) {
+  transform: skewY(25deg) rotate(287deg) translate(16px, -930px) scale(0.3);
+  background: #00ffcc;
+  animation: 2s bang infinite;
+  animation-delay: 0.05s;
+  bottom: 7px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(182) {
+  transform: skewY(2deg) rotate(87deg) translate(50px, -220px) scale(0.3);
+  background: #ffbf00;
+  animation: 2s bang infinite;
+  animation-delay: 0.15s;
+  bottom: 7px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(183) {
+  transform: skewY(27deg) rotate(137deg) translate(75px, -1320px) scale(0.1);
+  background: #4800ff;
+  animation: 2s bang infinite;
+  animation-delay: 0.25s;
+  bottom: 6px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(184) {
+  transform: skewY(10deg) rotate(203deg) translate(28px, -1570px) scale(0.2);
+  background: #15ff00;
+  animation: 2s bang infinite;
+  animation-delay: 0.25s;
+  bottom: 4px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(185) {
+  transform: skewY(18deg) rotate(54deg) translate(81px, -1445px) scale(0.3);
+  background: #ff6a00;
+  animation: 2s bang infinite;
+  animation-delay: 0.1s;
+  bottom: 7px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(186) {
+  transform: skewY(37deg) rotate(219deg) translate(79px, -440px) scale(0.1);
+  background: #ff002f;
+  animation: 2s bang infinite;
+  animation-delay: 0.05s;
+  bottom: 2px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(187) {
+  transform: skewY(18deg) rotate(57deg) translate(4px, -105px) scale(0.5);
+  background: #ae00ff;
+  animation: 2s bang infinite;
+  animation-delay: 0.25s;
+  bottom: 3px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(188) {
+  transform: skewY(12deg) rotate(99deg) translate(38px, -2365px) scale(0.5);
+  background: #ff0011;
+  animation: 2s bang infinite;
+  animation-delay: 0.25s;
+  bottom: 1px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(189) {
+  transform: skewY(3deg) rotate(126deg) translate(18px, -2005px) scale(0.1);
+  background: #b700ff;
+  animation: 2s bang infinite;
+  animation-delay: 0.2s;
+  bottom: 8px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(190) {
+  transform: skewY(46deg) rotate(141deg) translate(10px, -2160px) scale(0.1);
+  background: #ffd000;
+  animation: 2s bang infinite;
+  animation-delay: 0.1s;
+  bottom: 9px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(191) {
+  transform: skewY(29deg) rotate(74deg) translate(61px, -1700px) scale(0.2);
+  background: #ffaa00;
+  animation: 2s bang infinite;
+  animation-delay: 0.25s;
+  bottom: 2px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(192) {
+  transform: skewY(16deg) rotate(355deg) translate(91px, -2370px) scale(0.1);
+  background: #ff00ea;
+  animation: 2s bang infinite;
+  animation-delay: 0.2s;
+  bottom: 4px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(193) {
+  transform: skewY(47deg) rotate(6deg) translate(34px, -810px) scale(0.3);
+  background: #f200ff;
+  animation: 2s bang infinite;
+  animation-delay: 0.05s;
+  bottom: 10px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(194) {
+  transform: skewY(47deg) rotate(209deg) translate(61px, -70px) scale(0.5);
+  background: #ff9500;
+  animation: 2s bang infinite;
+  animation-delay: 0.2s;
+  bottom: 6px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(195) {
+  transform: skewY(17deg) rotate(58deg) translate(10px, -1785px) scale(0.5);
+  background: #0055ff;
+  animation: 2s bang infinite;
+  animation-delay: 0.15s;
+  bottom: 7px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(196) {
+  transform: skewY(14deg) rotate(300deg) translate(78px, -335px) scale(0.4);
+  background: #ff0026;
+  animation: 2s bang infinite;
+  animation-delay: 0.15s;
+  bottom: 5px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(197) {
+  transform: skewY(8deg) rotate(149deg) translate(66px, -1485px) scale(0.5);
+  background: #ff0084;
+  animation: 2s bang infinite;
+  animation-delay: 0.2s;
+  bottom: 3px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(198) {
+  transform: skewY(12deg) rotate(86deg) translate(21px, -885px) scale(0.4);
+  background: #00ffe1;
+  animation: 2s bang infinite;
+  animation-delay: 0.15s;
+  bottom: 2px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(199) {
+  transform: skewY(16deg) rotate(131deg) translate(12px, -750px) scale(0.5);
+  background: #00ff44;
+  animation: 2s bang infinite;
+  animation-delay: 0.05s;
+  bottom: 5px;
+  opacity: 0.3;
+}
+.confetti.animated p:nth-of-type(200) {
+  transform: skewY(29deg) rotate(100deg) translate(63px, -1385px) scale(0.3);
+  background: #00ff51;
+  animation: 2s bang infinite;
+  animation-delay: 0.2s;
+  bottom: 3px;
+  opacity: 0.3;
+}
+
+@keyframes bang {
+  from {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}</style><script charset="utf-8" src="./0.312f0905d.chunk.js.download"></script><script charset="utf-8" src="./1.390d5cd6d.chunk.js.download"></script><script charset="utf-8" src="./2.f916e8469.chunk.js.download"></script><script charset="utf-8" src="./7.c29658eb4.chunk.js.download"></script></head>
+
+<body>
+	<noscript>
+		You need to enable JavaScript to run this app.
+	</noscript>
+	<div id="root"><div class="App"><div class="confetti animated"><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p><p class="animated"></p></div><div class="img-container"><img class="kuku jump" src="./0j07-jump-character.png" alt="kuku"><button class="box"><img src="./j8KY-box.png" alt="box"></button><img class="lid  rotating rotated" src="./9J5o-box-lid.png" alt="box-lid"></div></div></div>
+	<!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  <script crossorigin="" type="text/javascript" src="./vendors~app~codemirror-editor~monaco-editor~sandbox.f80b3d7b3.chunk.js.download"></script>
+    <script crossorigin="" type="text/javascript" src="./common-sandbox.4915834c1.chunk.js.download"></script>
+    <script crossorigin="" type="text/javascript" src="./vendors~embed~sandbox.7291f218b.chunk.js.download"></script>
+    <script crossorigin="" type="text/javascript" src="./vendors~sandbox.85cffd5d2.chunk.js.download"></script>
+    <script crossorigin="" type="text/javascript" src="./default~app~embed~sandbox.56bd9a0c3.chunk.js.download"></script>
+    <script crossorigin="" type="text/javascript" src="./sandbox.74356d088.js.download"></script>
+    <script crossorigin="" type="text/javascript" src="./banner.d9cb10a38.js.download"></script>
+  <script>
+window.__SANDBOX_DATA__ = {
+  data: {"transpiledModules":{"/src/images/box-lid.png:":{"query":"","module":{"code":"https://uploads.codesandbox.io/uploads/user/e9650727-19e5-4d68-bd4b-4e124b448a2b/9J5o-box-lid.png","path":"/src/images/box-lid.png"},"isEntry":false,"isTestFile":false,"sourceEqualsCompiled":false,"childModules":[],"dependencies":[],"initiators":["/src/GiftBoxAnimation.js:"],"transpilationDependencies":[],"transpilationInitiators":[],"asyncDependencies":[],"warnings":[],"hasMissingDependencies":false,"source":{"fileName":"/src/images/box-lid.png","compiledCode":"module.exports = \"https://uploads.codesandbox.io/uploads/user/e9650727-19e5-4d68-bd4b-4e124b448a2b/9J5o-box-lid.png\"","sourceEqualsCompiled":false}},"/src/images/box.png:":{"query":"","module":{"code":"https://uploads.codesandbox.io/uploads/user/e9650727-19e5-4d68-bd4b-4e124b448a2b/j8KY-box.png","path":"/src/images/box.png"},"isEntry":false,"isTestFile":false,"sourceEqualsCompiled":false,"childModules":[],"dependencies":[],"initiators":["/src/GiftBoxAnimation.js:"],"transpilationDependencies":[],"transpilationInitiators":[],"asyncDependencies":[],"warnings":[],"hasMissingDependencies":false,"source":{"fileName":"/src/images/box.png","compiledCode":"module.exports = \"https://uploads.codesandbox.io/uploads/user/e9650727-19e5-4d68-bd4b-4e124b448a2b/j8KY-box.png\"","sourceEqualsCompiled":false}},"/src/index.js:":{"query":"","module":{"code":"import React from \"react\";\nimport ReactDOM from \"react-dom\";\n\nimport GiftBoxAnimation from \"./GiftBoxAnimation\";\n\nconst rootElement = document.getElementById(\"root\");\nReactDOM.render(\n  \u003cReact.StrictMode>\n    \u003cGiftBoxAnimation />\n  \u003c/React.StrictMode>,\n  rootElement\n);\n","path":"/src/index.js"},"isEntry":true,"isTestFile":false,"sourceEqualsCompiled":false,"childModules":[],"dependencies":["/node_modules/react/index.js:","/node_modules/react-dom/index.js:","/src/GiftBoxAnimation.js:","/node_modules/react-refresh/runtime.js:","/node_modules/csbbust/refresh-helper.js:","/node_modules/@babel/runtime/package.json:","/node_modules/@babel/runtime/helpers/interopRequireWildcard.js:","/node_modules/@babel/runtime/helpers/interopRequireDefault.js:"],"initiators":[],"transpilationDependencies":[],"transpilationInitiators":[],"asyncDependencies":[],"warnings":[],"hasMissingDependencies":false,"source":{"fileName":"/src/index.js","compiledCode":"var _csbRefreshUtils = require(\"/node_modules/csbbust/refresh-helper.js\");var prevRefreshReg = window.$RefreshReg$;var prevRefreshSig = window.$RefreshSig$;_csbRefreshUtils.prelude(module);try {\"use strict\";\n\nvar _interopRequireDefault = require(\"@babel/runtime/helpers/interopRequireDefault\");\nvar _react = _interopRequireDefault(require(\"react\"));\nvar _reactDom = _interopRequireDefault(require(\"react-dom\"));\nvar _GiftBoxAnimation = _interopRequireDefault(require(\"./GiftBoxAnimation\"));\nvar _jsxFileName = \"/src/index.js\";\nconst rootElement = document.getElementById(\"root\");\n_reactDom.default.render( /*#__PURE__*/_react.default.createElement(_react.default.StrictMode, {\n  __source: {\n    fileName: _jsxFileName,\n    lineNumber: 8,\n    columnNumber: 3\n  }\n}, /*#__PURE__*/_react.default.createElement(_GiftBoxAnimation.default, {\n  __source: {\n    fileName: _jsxFileName,\n    lineNumber: 9,\n    columnNumber: 5\n  }\n})), rootElement);\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJfcmVhY3QiLCJfaW50ZXJvcFJlcXVpcmVEZWZhdWx0IiwicmVxdWlyZSIsIl9yZWFjdERvbSIsIl9HaWZ0Qm94QW5pbWF0aW9uIiwiX2pzeEZpbGVOYW1lIiwicm9vdEVsZW1lbnQiLCJkb2N1bWVudCIsImdldEVsZW1lbnRCeUlkIiwiUmVhY3RET00iLCJyZW5kZXIiLCJkZWZhdWx0IiwiY3JlYXRlRWxlbWVudCIsIlN0cmljdE1vZGUiLCJfX3NvdXJjZSIsImZpbGVOYW1lIiwibGluZU51bWJlciIsImNvbHVtbk51bWJlciJdLCJzb3VyY2VzIjpbIi9zcmMvaW5kZXguanMiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IFJlYWN0IGZyb20gXCJyZWFjdFwiO1xuaW1wb3J0IFJlYWN0RE9NIGZyb20gXCJyZWFjdC1kb21cIjtcblxuaW1wb3J0IEdpZnRCb3hBbmltYXRpb24gZnJvbSBcIi4vR2lmdEJveEFuaW1hdGlvblwiO1xuXG5jb25zdCByb290RWxlbWVudCA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKFwicm9vdFwiKTtcblJlYWN0RE9NLnJlbmRlcihcbiAgPFJlYWN0LlN0cmljdE1vZGU+XG4gICAgPEdpZnRCb3hBbmltYXRpb24gLz5cbiAgPC9SZWFjdC5TdHJpY3RNb2RlPixcbiAgcm9vdEVsZW1lbnRcbik7XG4iXSwibWFwcGluZ3MiOiI7OztBQUFBLElBQUFBLE1BQUEsR0FBQUMsc0JBQUEsQ0FBQUMsT0FBQTtBQUNBLElBQUFDLFNBQUEsR0FBQUYsc0JBQUEsQ0FBQUMsT0FBQTtBQUVBLElBQUFFLGlCQUFBLEdBQUFILHNCQUFBLENBQUFDLE9BQUE7QUFBa0QsSUFBQUcsWUFBQTtBQUVsRCxNQUFNQyxXQUFXLEdBQUdDLFFBQVEsQ0FBQ0MsY0FBYyxDQUFDLE1BQU0sQ0FBQztBQUNuREMsaUJBQVEsQ0FBQ0MsTUFBTSxlQUNiVixNQUFBLENBQUFXLE9BQUEsQ0FBQUMsYUFBQSxDQUFDWixNQUFBLENBQUFXLE9BQUssQ0FBQ0UsVUFBVTtFQUFBQyxRQUFBO0lBQUFDLFFBQUEsRUFBQVYsWUFBQTtJQUFBVyxVQUFBO0lBQUFDLFlBQUE7RUFBQTtBQUFBLGdCQUNmakIsTUFBQSxDQUFBVyxPQUFBLENBQUFDLGFBQUEsQ0FBQ1IsaUJBQUEsQ0FBQU8sT0FBZ0I7RUFBQUcsUUFBQTtJQUFBQyxRQUFBLEVBQUFWLFlBQUE7SUFBQVcsVUFBQTtJQUFBQyxZQUFBO0VBQUE7QUFBQSxDQUFFLENBQ0gsQ0FBQyxFQUNuQlgsV0FDRixDQUFDIn0=\n_csbRefreshUtils.postlude(module);} finally {  window.$RefreshReg$ = prevRefreshReg;  window.$RefreshSig$ = prevRefreshSig;}","sourceEqualsCompiled":false}},"/package.json:":{"query":"","module":{"code":"{\n  \"name\": \"gift-box-css\",\n  \"version\": \"1.0.0\",\n  \"description\": \"css gift box confetti animation\",\n  \"keywords\": [],\n  \"main\": \"src/index.js\",\n  \"dependencies\": {\n    \"react\": \"16.12.0\",\n    \"react-dom\": \"16.12.0\",\n    \"react-scripts\": \"3.0.1\"\n  },\n  \"devDependencies\": {\n    \"typescript\": \"3.3.3\"\n  },\n  \"scripts\": {\n    \"start\": \"react-scripts start\",\n    \"build\": \"react-scripts build\",\n    \"test\": \"react-scripts test --env=jsdom\",\n    \"eject\": \"react-scripts eject\"\n  },\n  \"browserslist\": [\n    \">0.2%\",\n    \"not dead\",\n    \"not ie \u003c= 11\",\n    \"not op_mini all\"\n  ]\n}","path":"/package.json"},"isEntry":false,"isTestFile":false,"sourceEqualsCompiled":false,"childModules":[],"dependencies":["/node_modules/react/package.json:"],"initiators":[],"transpilationDependencies":[],"transpilationInitiators":[],"asyncDependencies":[],"warnings":[],"hasMissingDependencies":false,"source":{"fileName":"/package.json","compiledCode":"\n      module.exports = JSON.parse(\"{\\n  \\\"name\\\": \\\"gift-box-css\\\",\\n  \\\"version\\\": \\\"1.0.0\\\",\\n  \\\"description\\\": \\\"css gift box confetti animation\\\",\\n  \\\"keywords\\\": [],\\n  \\\"main\\\": \\\"src/index.js\\\",\\n  \\\"dependencies\\\": {\\n    \\\"react\\\": \\\"16.12.0\\\",\\n    \\\"react-dom\\\": \\\"16.12.0\\\",\\n    \\\"react-scripts\\\": \\\"3.0.1\\\"\\n  },\\n  \\\"devDependencies\\\": {\\n    \\\"typescript\\\": \\\"3.3.3\\\"\\n  },\\n  \\\"scripts\\\": {\\n    \\\"start\\\": \\\"react-scripts start\\\",\\n    \\\"build\\\": \\\"react-scripts build\\\",\\n    \\\"test\\\": \\\"react-scripts test --env=jsdom\\\",\\n    \\\"eject\\\": \\\"react-scripts eject\\\"\\n  },\\n  \\\"browserslist\\\": [\\n    \\\">0.2%\\\",\\n    \\\"not dead\\\",\\n    \\\"not ie \u003c= 11\\\",\\n    \\\"not op_mini all\\\"\\n  ]\\n}\")\n    ","sourceEqualsCompiled":false}},"/src/images/jump-character.png:":{"query":"","module":{"code":"https://uploads.codesandbox.io/uploads/user/e9650727-19e5-4d68-bd4b-4e124b448a2b/0j07-jump-character.png","path":"/src/images/jump-character.png"},"isEntry":false,"isTestFile":false,"sourceEqualsCompiled":false,"childModules":[],"dependencies":[],"initiators":["/src/GiftBoxAnimation.js:"],"transpilationDependencies":[],"transpilationInitiators":[],"asyncDependencies":[],"warnings":[],"hasMissingDependencies":false,"source":{"fileName":"/src/images/jump-character.png","compiledCode":"module.exports = \"https://uploads.codesandbox.io/uploads/user/e9650727-19e5-4d68-bd4b-4e124b448a2b/0j07-jump-character.png\"","sourceEqualsCompiled":false}},"/src/confetti/Confetti.js:":{"query":"","module":{"code":"import React, { Fragment } from \"react\";\nimport \"./confetti.scss\";\n\nlet count = 200;\nlet points = [];\n\nfunction Confetti({ open }) {\n  let confetti = generatePoints();\n\n  function generatePoints() {\n    points = [];\n\n    for (let i = 0; i \u003c count; i++) {\n      points.push(\u003cp className={`${open ? \"animated\" : \"\"}`} key={i} />);\n    }\n    return points;\n  }\n\n  return (\n    \u003cFragment>\n      \u003cdiv className={`confetti ${open ? \"animated\" : \"\"}`}>\n        {confetti.map(c => c)}\n      \u003c/div>\n    \u003c/Fragment>\n  );\n}\n\nexport default Confetti;\n","path":"/src/confetti/Confetti.js"},"isEntry":false,"isTestFile":false,"sourceEqualsCompiled":false,"childModules":[],"dependencies":["/src/confetti/confetti.scss:","/node_modules/react/index.js:","/node_modules/@babel/runtime/helpers/interopRequireDefault.js:","/node_modules/@babel/runtime/helpers/interopRequireWildcard.js:","/node_modules/react-refresh/runtime.js:","/node_modules/csbbust/refresh-helper.js:"],"initiators":["/src/GiftBoxAnimation.js:"],"transpilationDependencies":[],"transpilationInitiators":[],"asyncDependencies":[],"warnings":[],"hasMissingDependencies":false,"source":{"fileName":"/src/confetti/Confetti.js","compiledCode":"var _csbRefreshUtils = require(\"/node_modules/csbbust/refresh-helper.js\");var prevRefreshReg = window.$RefreshReg$;var prevRefreshSig = window.$RefreshSig$;_csbRefreshUtils.prelude(module);try {\"use strict\";\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.default = void 0;\nvar _react = _interopRequireWildcard(require(\"react\"));\nrequire(\"./confetti.scss\");\nvar _jsxFileName = \"/src/confetti/Confetti.js\";\nfunction _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== \"function\") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }\nfunction _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== \"object\" && typeof obj !== \"function\") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== \"default\" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }\nlet count = 200;\nlet points = [];\nfunction Confetti(_ref) {\n  let {\n    open\n  } = _ref;\n  let confetti = generatePoints();\n  function generatePoints() {\n    var _loopIt = 0;\n    points = [];\n    for (let i = 0; i \u003c count; i++) {\n      if (_loopIt++ > 100001) {\n        var csb_global = typeof window === 'undefined' ? self : window;\n        csb_global.infiniteLoopError = new RangeError('Potential infinite loop: exceeded ' + 100001 + ' iterations. You can disable this check by creating a sandbox.config.json file.');\n        throw csb_global.infiniteLoopError;\n      }\n      points.push( /*#__PURE__*/_react.default.createElement(\"p\", {\n        className: `${open ? \"animated\" : \"\"}`,\n        key: i,\n        __source: {\n          fileName: _jsxFileName,\n          lineNumber: 14,\n          columnNumber: 19\n        }\n      }));\n    }\n    return points;\n  }\n  return /*#__PURE__*/_react.default.createElement(_react.Fragment, {\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 20,\n      columnNumber: 5\n    }\n  }, /*#__PURE__*/_react.default.createElement(\"div\", {\n    className: `confetti ${open ? \"animated\" : \"\"}`,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 21,\n      columnNumber: 7\n    }\n  }, confetti.map(c => c)));\n}\n_c = Confetti;\nvar _default = Confetti;\nexports.default = _default;\nvar _c;\n$RefreshReg$(_c, \"Confetti\");\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJfcmVhY3QiLCJfaW50ZXJvcFJlcXVpcmVXaWxkY2FyZCIsInJlcXVpcmUiLCJfanN4RmlsZU5hbWUiLCJfZ2V0UmVxdWlyZVdpbGRjYXJkQ2FjaGUiLCJub2RlSW50ZXJvcCIsIldlYWtNYXAiLCJjYWNoZUJhYmVsSW50ZXJvcCIsImNhY2hlTm9kZUludGVyb3AiLCJvYmoiLCJfX2VzTW9kdWxlIiwiZGVmYXVsdCIsImNhY2hlIiwiaGFzIiwiZ2V0IiwibmV3T2JqIiwiaGFzUHJvcGVydHlEZXNjcmlwdG9yIiwiT2JqZWN0IiwiZGVmaW5lUHJvcGVydHkiLCJnZXRPd25Qcm9wZXJ0eURlc2NyaXB0b3IiLCJrZXkiLCJwcm90b3R5cGUiLCJoYXNPd25Qcm9wZXJ0eSIsImNhbGwiLCJkZXNjIiwic2V0IiwiY291bnQiLCJwb2ludHMiLCJDb25mZXR0aSIsIl9yZWYiLCJvcGVuIiwiY29uZmV0dGkiLCJnZW5lcmF0ZVBvaW50cyIsIl9sb29wSXQiLCJpIiwiY3NiX2dsb2JhbCIsIndpbmRvdyIsInNlbGYiLCJpbmZpbml0ZUxvb3BFcnJvciIsIlJhbmdlRXJyb3IiLCJwdXNoIiwiY3JlYXRlRWxlbWVudCIsImNsYXNzTmFtZSIsIl9fc291cmNlIiwiZmlsZU5hbWUiLCJsaW5lTnVtYmVyIiwiY29sdW1uTnVtYmVyIiwiRnJhZ21lbnQiLCJtYXAiLCJjIiwiX2MiLCJfZGVmYXVsdCIsImV4cG9ydHMiLCIkUmVmcmVzaFJlZyQiXSwic291cmNlcyI6WyIvc3JjL2NvbmZldHRpL0NvbmZldHRpLmpzIl0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBSZWFjdCwgeyBGcmFnbWVudCB9IGZyb20gXCJyZWFjdFwiO1xuaW1wb3J0IFwiLi9jb25mZXR0aS5zY3NzXCI7XG5cbmxldCBjb3VudCA9IDIwMDtcbmxldCBwb2ludHMgPSBbXTtcblxuZnVuY3Rpb24gQ29uZmV0dGkoeyBvcGVuIH0pIHtcbiAgbGV0IGNvbmZldHRpID0gZ2VuZXJhdGVQb2ludHMoKTtcblxuICBmdW5jdGlvbiBnZW5lcmF0ZVBvaW50cygpIHtcbiAgICBwb2ludHMgPSBbXTtcblxuICAgIGZvciAobGV0IGkgPSAwOyBpIDwgY291bnQ7IGkrKykge1xuICAgICAgcG9pbnRzLnB1c2goPHAgY2xhc3NOYW1lPXtgJHtvcGVuID8gXCJhbmltYXRlZFwiIDogXCJcIn1gfSBrZXk9e2l9IC8+KTtcbiAgICB9XG4gICAgcmV0dXJuIHBvaW50cztcbiAgfVxuXG4gIHJldHVybiAoXG4gICAgPEZyYWdtZW50PlxuICAgICAgPGRpdiBjbGFzc05hbWU9e2Bjb25mZXR0aSAke29wZW4gPyBcImFuaW1hdGVkXCIgOiBcIlwifWB9PlxuICAgICAgICB7Y29uZmV0dGkubWFwKGMgPT4gYyl9XG4gICAgICA8L2Rpdj5cbiAgICA8L0ZyYWdtZW50PlxuICApO1xufVxuXG5leHBvcnQgZGVmYXVsdCBDb25mZXR0aTtcbiJdLCJtYXBwaW5ncyI6Ijs7Ozs7O0FBQUEsSUFBQUEsTUFBQSxHQUFBQyx1QkFBQSxDQUFBQyxPQUFBO0FBQ0FBLE9BQUE7QUFBeUIsSUFBQUMsWUFBQTtBQUFBLFNBQUFDLHlCQUFBQyxXQUFBLGVBQUFDLE9BQUEsa0NBQUFDLGlCQUFBLE9BQUFELE9BQUEsUUFBQUUsZ0JBQUEsT0FBQUYsT0FBQSxZQUFBRix3QkFBQSxZQUFBQSxDQUFBQyxXQUFBLFdBQUFBLFdBQUEsR0FBQUcsZ0JBQUEsR0FBQUQsaUJBQUEsS0FBQUYsV0FBQTtBQUFBLFNBQUFKLHdCQUFBUSxHQUFBLEVBQUFKLFdBQUEsU0FBQUEsV0FBQSxJQUFBSSxHQUFBLElBQUFBLEdBQUEsQ0FBQUMsVUFBQSxXQUFBRCxHQUFBLFFBQUFBLEdBQUEsb0JBQUFBLEdBQUEsd0JBQUFBLEdBQUEsNEJBQUFFLE9BQUEsRUFBQUYsR0FBQSxVQUFBRyxLQUFBLEdBQUFSLHdCQUFBLENBQUFDLFdBQUEsT0FBQU8sS0FBQSxJQUFBQSxLQUFBLENBQUFDLEdBQUEsQ0FBQUosR0FBQSxZQUFBRyxLQUFBLENBQUFFLEdBQUEsQ0FBQUwsR0FBQSxTQUFBTSxNQUFBLFdBQUFDLHFCQUFBLEdBQUFDLE1BQUEsQ0FBQUMsY0FBQSxJQUFBRCxNQUFBLENBQUFFLHdCQUFBLFdBQUFDLEdBQUEsSUFBQVgsR0FBQSxRQUFBVyxHQUFBLGtCQUFBSCxNQUFBLENBQUFJLFNBQUEsQ0FBQUMsY0FBQSxDQUFBQyxJQUFBLENBQUFkLEdBQUEsRUFBQVcsR0FBQSxTQUFBSSxJQUFBLEdBQUFSLHFCQUFBLEdBQUFDLE1BQUEsQ0FBQUUsd0JBQUEsQ0FBQVYsR0FBQSxFQUFBVyxHQUFBLGNBQUFJLElBQUEsS0FBQUEsSUFBQSxDQUFBVixHQUFBLElBQUFVLElBQUEsQ0FBQUMsR0FBQSxLQUFBUixNQUFBLENBQUFDLGNBQUEsQ0FBQUgsTUFBQSxFQUFBSyxHQUFBLEVBQUFJLElBQUEsWUFBQVQsTUFBQSxDQUFBSyxHQUFBLElBQUFYLEdBQUEsQ0FBQVcsR0FBQSxTQUFBTCxNQUFBLENBQUFKLE9BQUEsR0FBQUYsR0FBQSxNQUFBRyxLQUFBLElBQUFBLEtBQUEsQ0FBQWEsR0FBQSxDQUFBaEIsR0FBQSxFQUFBTSxNQUFBLFlBQUFBLE1BQUE7QUFFekIsSUFBSVcsS0FBSyxHQUFHLEdBQUc7QUFDZixJQUFJQyxNQUFNLEdBQUcsRUFBRTtBQUVmLFNBQVNDLFFBQVFBLENBQUFDLElBQUEsRUFBVztFQUFBLElBQVY7SUFBRUM7RUFBSyxDQUFDLEdBQUFELElBQUE7RUFDeEIsSUFBSUUsUUFBUSxHQUFHQyxjQUFjLENBQUMsQ0FBQztFQUUvQixTQUFTQSxjQUFjQSxDQUFBLEVBQUc7SUFBQSxJQUFBQyxPQUFBO0lBQ3hCTixNQUFNLEdBQUcsRUFBRTtJQUVYLEtBQUssSUFBSU8sQ0FBQyxHQUFHLENBQUMsRUFBRUEsQ0FBQyxHQUFHUixLQUFLLEVBQUVRLENBQUMsRUFBRSxFQUFFO01BQUEsSUFBQUQsT0FBQTtRQUFBLElBQUFFLFVBQUEsVUFBQUMsTUFBQSxtQkFBQUMsSUFBQSxHQUFBRCxNQUFBO1FBQUFELFVBQUEsQ0FBQUcsaUJBQUEsT0FBQUMsVUFBQTtRQUFBLE1BQUFKLFVBQUEsQ0FBQUcsaUJBQUE7TUFBQTtNQUM5QlgsTUFBTSxDQUFDYSxJQUFJLGVBQUN4QyxNQUFBLENBQUFXLE9BQUEsQ0FBQThCLGFBQUE7UUFBR0MsU0FBUyxFQUFHLEdBQUVaLElBQUksR0FBRyxVQUFVLEdBQUcsRUFBRyxFQUFFO1FBQUNWLEdBQUcsRUFBRWMsQ0FBRTtRQUFBUyxRQUFBO1VBQUFDLFFBQUEsRUFBQXpDLFlBQUE7VUFBQTBDLFVBQUE7VUFBQUMsWUFBQTtRQUFBO01BQUEsQ0FBRSxDQUFDLENBQUM7SUFDcEU7SUFDQSxPQUFPbkIsTUFBTTtFQUNmO0VBRUEsb0JBQ0UzQixNQUFBLENBQUFXLE9BQUEsQ0FBQThCLGFBQUEsQ0FBQ3pDLE1BQUEsQ0FBQStDLFFBQVE7SUFBQUosUUFBQTtNQUFBQyxRQUFBLEVBQUF6QyxZQUFBO01BQUEwQyxVQUFBO01BQUFDLFlBQUE7SUFBQTtFQUFBLGdCQUNQOUMsTUFBQSxDQUFBVyxPQUFBLENBQUE4QixhQUFBO0lBQUtDLFNBQVMsRUFBRyxZQUFXWixJQUFJLEdBQUcsVUFBVSxHQUFHLEVBQUcsRUFBRTtJQUFBYSxRQUFBO01BQUFDLFFBQUEsRUFBQXpDLFlBQUE7TUFBQTBDLFVBQUE7TUFBQUMsWUFBQTtJQUFBO0VBQUEsR0FDbERmLFFBQVEsQ0FBQ2lCLEdBQUcsQ0FBQ0MsQ0FBQyxJQUFJQSxDQUFDLENBQ2pCLENBQ0csQ0FBQztBQUVmO0FBQUNDLEVBQUEsR0FuQlF0QixRQUFRO0FBQUEsSUFBQXVCLFFBQUEsR0FxQkZ2QixRQUFRO0FBQUF3QixPQUFBLENBQUF6QyxPQUFBLEdBQUF3QyxRQUFBO0FBQUEsSUFBQUQsRUFBQTtBQUFBRyxZQUFBLENBQUFILEVBQUEifQ==\n_csbRefreshUtils.postlude(module);} finally {  window.$RefreshReg$ = prevRefreshReg;  window.$RefreshSig$ = prevRefreshSig;}","sourceEqualsCompiled":false}},"/src/GiftBoxAnimation.js:":{"query":"","module":{"code":"import React, { useReducer } from \"react\";\nimport \"./styles.css\";\n\nimport box from \"./images/box.png\";\nimport boxLid from \"./images/box-lid.png\";\nimport kuku from \"./images/jump-character.png\";\n// import ConfettiGenerator from \"./CanvasConfetti\";\nimport Confetti from \"./confetti/Confetti\";\n\nconst init_state = {\n  move: \"move\",\n  jump: \"\",\n  rotated: \"\",\n  rotating: \"\"\n};\nexport default function GiftBoxAnimation() {\n  const [state, setState] = useReducer(\n    (state, new_state) => ({\n      ...state,\n      ...new_state\n    }),\n    init_state\n  );\n\n  const { move, rotating, rotated, jump } = state;\n\n  function animate() {\n    let isDone = rotated === \"rotated\" ? true : false;\n\n    if (!isDone) {\n      setState({ rotating: \"rotating\" });\n      setTimeout(() => {\n        setState({ jump: \"jump\" });\n      }, 300);\n      setTimeout(() => {\n        setState({ rotated: \"rotated\" });\n      }, 1000);\n    } else {\n      setState(init_state);\n    }\n    let moving = move === \"move\" ? \"\" : \"move\";\n    setState({ move: moving });\n  }\n\n  return (\n    \u003cdiv className=\"App\">\n      \u003cConfetti open={jump === \"jump\"} />\n      \u003cdiv className=\"img-container\">\n        \u003cimg className={`kuku ${jump}`} src={kuku} alt=\"kuku\" />\n        \u003cbutton className=\"box\" onClick={() => animate()}>\n          \u003cimg src={box} alt=\"box\" />\n        \u003c/button>\n        \u003cimg\n          className={`lid ${move} ${rotating} ${rotated}`}\n          src={boxLid}\n          alt=\"box-lid\"\n        />\n      \u003c/div>\n    \u003c/div>\n  );\n}\n","path":"/src/GiftBoxAnimation.js"},"isEntry":false,"isTestFile":false,"sourceEqualsCompiled":false,"childModules":[],"dependencies":["/src/styles.css:","/src/images/box.png:","/src/images/box-lid.png:","/src/images/jump-character.png:","/node_modules/react/index.js:","/src/confetti/Confetti.js:","/node_modules/@babel/runtime/helpers/interopRequireWildcard.js:","/node_modules/@babel/runtime/helpers/interopRequireDefault.js:","/node_modules/react-refresh/runtime.js:","/node_modules/csbbust/refresh-helper.js:"],"initiators":["/src/index.js:"],"transpilationDependencies":[],"transpilationInitiators":[],"asyncDependencies":[],"warnings":[],"hasMissingDependencies":false,"source":{"fileName":"/src/GiftBoxAnimation.js","compiledCode":"var _csbRefreshUtils = require(\"/node_modules/csbbust/refresh-helper.js\");var prevRefreshReg = window.$RefreshReg$;var prevRefreshSig = window.$RefreshSig$;_csbRefreshUtils.prelude(module);try {\"use strict\";\n\nvar _interopRequireDefault = require(\"@babel/runtime/helpers/interopRequireDefault\");\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.default = GiftBoxAnimation;\nvar _react = _interopRequireWildcard(require(\"react\"));\nrequire(\"./styles.css\");\nvar _box = _interopRequireDefault(require(\"./images/box.png\"));\nvar _boxLid = _interopRequireDefault(require(\"./images/box-lid.png\"));\nvar _jumpCharacter = _interopRequireDefault(require(\"./images/jump-character.png\"));\nvar _Confetti = _interopRequireDefault(require(\"./confetti/Confetti\"));\nvar _jsxFileName = \"/src/GiftBoxAnimation.js\",\n  _s = $RefreshSig$(); // import ConfettiGenerator from \"./CanvasConfetti\";\nfunction _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== \"function\") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }\nfunction _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== \"object\" && typeof obj !== \"function\") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== \"default\" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }\nconst init_state = {\n  move: \"move\",\n  jump: \"\",\n  rotated: \"\",\n  rotating: \"\"\n};\nfunction GiftBoxAnimation() {\n  _s();\n  const [state, setState] = (0, _react.useReducer)((state, new_state) => ({\n    ...state,\n    ...new_state\n  }), init_state);\n  const {\n    move,\n    rotating,\n    rotated,\n    jump\n  } = state;\n  function animate() {\n    let isDone = rotated === \"rotated\" ? true : false;\n    if (!isDone) {\n      setState({\n        rotating: \"rotating\"\n      });\n      setTimeout(() => {\n        setState({\n          jump: \"jump\"\n        });\n      }, 300);\n      setTimeout(() => {\n        setState({\n          rotated: \"rotated\"\n        });\n      }, 1000);\n    } else {\n      setState(init_state);\n    }\n    let moving = move === \"move\" ? \"\" : \"move\";\n    setState({\n      move: moving\n    });\n  }\n  return /*#__PURE__*/_react.default.createElement(\"div\", {\n    className: \"App\",\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 46,\n      columnNumber: 5\n    }\n  }, /*#__PURE__*/_react.default.createElement(_Confetti.default, {\n    open: jump === \"jump\",\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 47,\n      columnNumber: 7\n    }\n  }), /*#__PURE__*/_react.default.createElement(\"div\", {\n    className: \"img-container\",\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 48,\n      columnNumber: 7\n    }\n  }, /*#__PURE__*/_react.default.createElement(\"img\", {\n    className: `kuku ${jump}`,\n    src: _jumpCharacter.default,\n    alt: \"kuku\",\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 49,\n      columnNumber: 9\n    }\n  }), /*#__PURE__*/_react.default.createElement(\"button\", {\n    className: \"box\",\n    onClick: () => animate(),\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 50,\n      columnNumber: 9\n    }\n  }, /*#__PURE__*/_react.default.createElement(\"img\", {\n    src: _box.default,\n    alt: \"box\",\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 51,\n      columnNumber: 11\n    }\n  })), /*#__PURE__*/_react.default.createElement(\"img\", {\n    className: `lid ${move} ${rotating} ${rotated}`,\n    src: _boxLid.default,\n    alt: \"box-lid\",\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 53,\n      columnNumber: 9\n    }\n  })));\n}\n_s(GiftBoxAnimation, \"fObmbUrlNr2W3LASTbO7aXJUMZM=\");\n_c = GiftBoxAnimation;\nvar _c;\n$RefreshReg$(_c, \"GiftBoxAnimation\");\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJfcmVhY3QiLCJfaW50ZXJvcFJlcXVpcmVXaWxkY2FyZCIsInJlcXVpcmUiLCJfYm94IiwiX2ludGVyb3BSZXF1aXJlRGVmYXVsdCIsIl9ib3hMaWQiLCJfanVtcENoYXJhY3RlciIsIl9Db25mZXR0aSIsIl9qc3hGaWxlTmFtZSIsIl9zIiwiJFJlZnJlc2hTaWckIiwiX2dldFJlcXVpcmVXaWxkY2FyZENhY2hlIiwibm9kZUludGVyb3AiLCJXZWFrTWFwIiwiY2FjaGVCYWJlbEludGVyb3AiLCJjYWNoZU5vZGVJbnRlcm9wIiwib2JqIiwiX19lc01vZHVsZSIsImRlZmF1bHQiLCJjYWNoZSIsImhhcyIsImdldCIsIm5ld09iaiIsImhhc1Byb3BlcnR5RGVzY3JpcHRvciIsIk9iamVjdCIsImRlZmluZVByb3BlcnR5IiwiZ2V0T3duUHJvcGVydHlEZXNjcmlwdG9yIiwia2V5IiwicHJvdG90eXBlIiwiaGFzT3duUHJvcGVydHkiLCJjYWxsIiwiZGVzYyIsInNldCIsImluaXRfc3RhdGUiLCJtb3ZlIiwianVtcCIsInJvdGF0ZWQiLCJyb3RhdGluZyIsIkdpZnRCb3hBbmltYXRpb24iLCJzdGF0ZSIsInNldFN0YXRlIiwidXNlUmVkdWNlciIsIm5ld19zdGF0ZSIsImFuaW1hdGUiLCJpc0RvbmUiLCJzZXRUaW1lb3V0IiwibW92aW5nIiwiY3JlYXRlRWxlbWVudCIsImNsYXNzTmFtZSIsIl9fc291cmNlIiwiZmlsZU5hbWUiLCJsaW5lTnVtYmVyIiwiY29sdW1uTnVtYmVyIiwib3BlbiIsInNyYyIsImt1a3UiLCJhbHQiLCJvbkNsaWNrIiwiYm94IiwiYm94TGlkIiwiX2MiLCIkUmVmcmVzaFJlZyQiXSwic291cmNlcyI6WyIvc3JjL0dpZnRCb3hBbmltYXRpb24uanMiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IFJlYWN0LCB7IHVzZVJlZHVjZXIgfSBmcm9tIFwicmVhY3RcIjtcbmltcG9ydCBcIi4vc3R5bGVzLmNzc1wiO1xuXG5pbXBvcnQgYm94IGZyb20gXCIuL2ltYWdlcy9ib3gucG5nXCI7XG5pbXBvcnQgYm94TGlkIGZyb20gXCIuL2ltYWdlcy9ib3gtbGlkLnBuZ1wiO1xuaW1wb3J0IGt1a3UgZnJvbSBcIi4vaW1hZ2VzL2p1bXAtY2hhcmFjdGVyLnBuZ1wiO1xuLy8gaW1wb3J0IENvbmZldHRpR2VuZXJhdG9yIGZyb20gXCIuL0NhbnZhc0NvbmZldHRpXCI7XG5pbXBvcnQgQ29uZmV0dGkgZnJvbSBcIi4vY29uZmV0dGkvQ29uZmV0dGlcIjtcblxuY29uc3QgaW5pdF9zdGF0ZSA9IHtcbiAgbW92ZTogXCJtb3ZlXCIsXG4gIGp1bXA6IFwiXCIsXG4gIHJvdGF0ZWQ6IFwiXCIsXG4gIHJvdGF0aW5nOiBcIlwiXG59O1xuZXhwb3J0IGRlZmF1bHQgZnVuY3Rpb24gR2lmdEJveEFuaW1hdGlvbigpIHtcbiAgY29uc3QgW3N0YXRlLCBzZXRTdGF0ZV0gPSB1c2VSZWR1Y2VyKFxuICAgIChzdGF0ZSwgbmV3X3N0YXRlKSA9PiAoe1xuICAgICAgLi4uc3RhdGUsXG4gICAgICAuLi5uZXdfc3RhdGVcbiAgICB9KSxcbiAgICBpbml0X3N0YXRlXG4gICk7XG5cbiAgY29uc3QgeyBtb3ZlLCByb3RhdGluZywgcm90YXRlZCwganVtcCB9ID0gc3RhdGU7XG5cbiAgZnVuY3Rpb24gYW5pbWF0ZSgpIHtcbiAgICBsZXQgaXNEb25lID0gcm90YXRlZCA9PT0gXCJyb3RhdGVkXCIgPyB0cnVlIDogZmFsc2U7XG5cbiAgICBpZiAoIWlzRG9uZSkge1xuICAgICAgc2V0U3RhdGUoeyByb3RhdGluZzogXCJyb3RhdGluZ1wiIH0pO1xuICAgICAgc2V0VGltZW91dCgoKSA9PiB7XG4gICAgICAgIHNldFN0YXRlKHsganVtcDogXCJqdW1wXCIgfSk7XG4gICAgICB9LCAzMDApO1xuICAgICAgc2V0VGltZW91dCgoKSA9PiB7XG4gICAgICAgIHNldFN0YXRlKHsgcm90YXRlZDogXCJyb3RhdGVkXCIgfSk7XG4gICAgICB9LCAxMDAwKTtcbiAgICB9IGVsc2Uge1xuICAgICAgc2V0U3RhdGUoaW5pdF9zdGF0ZSk7XG4gICAgfVxuICAgIGxldCBtb3ZpbmcgPSBtb3ZlID09PSBcIm1vdmVcIiA/IFwiXCIgOiBcIm1vdmVcIjtcbiAgICBzZXRTdGF0ZSh7IG1vdmU6IG1vdmluZyB9KTtcbiAgfVxuXG4gIHJldHVybiAoXG4gICAgPGRpdiBjbGFzc05hbWU9XCJBcHBcIj5cbiAgICAgIDxDb25mZXR0aSBvcGVuPXtqdW1wID09PSBcImp1bXBcIn0gLz5cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwiaW1nLWNvbnRhaW5lclwiPlxuICAgICAgICA8aW1nIGNsYXNzTmFtZT17YGt1a3UgJHtqdW1wfWB9IHNyYz17a3VrdX0gYWx0PVwia3VrdVwiIC8+XG4gICAgICAgIDxidXR0b24gY2xhc3NOYW1lPVwiYm94XCIgb25DbGljaz17KCkgPT4gYW5pbWF0ZSgpfT5cbiAgICAgICAgICA8aW1nIHNyYz17Ym94fSBhbHQ9XCJib3hcIiAvPlxuICAgICAgICA8L2J1dHRvbj5cbiAgICAgICAgPGltZ1xuICAgICAgICAgIGNsYXNzTmFtZT17YGxpZCAke21vdmV9ICR7cm90YXRpbmd9ICR7cm90YXRlZH1gfVxuICAgICAgICAgIHNyYz17Ym94TGlkfVxuICAgICAgICAgIGFsdD1cImJveC1saWRcIlxuICAgICAgICAvPlxuICAgICAgPC9kaXY+XG4gICAgPC9kaXY+XG4gICk7XG59XG4iXSwibWFwcGluZ3MiOiI7Ozs7Ozs7QUFBQSxJQUFBQSxNQUFBLEdBQUFDLHVCQUFBLENBQUFDLE9BQUE7QUFDQUEsT0FBQTtBQUVBLElBQUFDLElBQUEsR0FBQUMsc0JBQUEsQ0FBQUYsT0FBQTtBQUNBLElBQUFHLE9BQUEsR0FBQUQsc0JBQUEsQ0FBQUYsT0FBQTtBQUNBLElBQUFJLGNBQUEsR0FBQUYsc0JBQUEsQ0FBQUYsT0FBQTtBQUVBLElBQUFLLFNBQUEsR0FBQUgsc0JBQUEsQ0FBQUYsT0FBQTtBQUEyQyxJQUFBTSxZQUFBO0VBQUFDLEVBQUEsR0FBQUMsWUFBQSxJQUQzQztBQUFBLFNBQUFDLHlCQUFBQyxXQUFBLGVBQUFDLE9BQUEsa0NBQUFDLGlCQUFBLE9BQUFELE9BQUEsUUFBQUUsZ0JBQUEsT0FBQUYsT0FBQSxZQUFBRix3QkFBQSxZQUFBQSxDQUFBQyxXQUFBLFdBQUFBLFdBQUEsR0FBQUcsZ0JBQUEsR0FBQUQsaUJBQUEsS0FBQUYsV0FBQTtBQUFBLFNBQUFYLHdCQUFBZSxHQUFBLEVBQUFKLFdBQUEsU0FBQUEsV0FBQSxJQUFBSSxHQUFBLElBQUFBLEdBQUEsQ0FBQUMsVUFBQSxXQUFBRCxHQUFBLFFBQUFBLEdBQUEsb0JBQUFBLEdBQUEsd0JBQUFBLEdBQUEsNEJBQUFFLE9BQUEsRUFBQUYsR0FBQSxVQUFBRyxLQUFBLEdBQUFSLHdCQUFBLENBQUFDLFdBQUEsT0FBQU8sS0FBQSxJQUFBQSxLQUFBLENBQUFDLEdBQUEsQ0FBQUosR0FBQSxZQUFBRyxLQUFBLENBQUFFLEdBQUEsQ0FBQUwsR0FBQSxTQUFBTSxNQUFBLFdBQUFDLHFCQUFBLEdBQUFDLE1BQUEsQ0FBQUMsY0FBQSxJQUFBRCxNQUFBLENBQUFFLHdCQUFBLFdBQUFDLEdBQUEsSUFBQVgsR0FBQSxRQUFBVyxHQUFBLGtCQUFBSCxNQUFBLENBQUFJLFNBQUEsQ0FBQUMsY0FBQSxDQUFBQyxJQUFBLENBQUFkLEdBQUEsRUFBQVcsR0FBQSxTQUFBSSxJQUFBLEdBQUFSLHFCQUFBLEdBQUFDLE1BQUEsQ0FBQUUsd0JBQUEsQ0FBQVYsR0FBQSxFQUFBVyxHQUFBLGNBQUFJLElBQUEsS0FBQUEsSUFBQSxDQUFBVixHQUFBLElBQUFVLElBQUEsQ0FBQUMsR0FBQSxLQUFBUixNQUFBLENBQUFDLGNBQUEsQ0FBQUgsTUFBQSxFQUFBSyxHQUFBLEVBQUFJLElBQUEsWUFBQVQsTUFBQSxDQUFBSyxHQUFBLElBQUFYLEdBQUEsQ0FBQVcsR0FBQSxTQUFBTCxNQUFBLENBQUFKLE9BQUEsR0FBQUYsR0FBQSxNQUFBRyxLQUFBLElBQUFBLEtBQUEsQ0FBQWEsR0FBQSxDQUFBaEIsR0FBQSxFQUFBTSxNQUFBLFlBQUFBLE1BQUE7QUFHQSxNQUFNVyxVQUFVLEdBQUc7RUFDakJDLElBQUksRUFBRSxNQUFNO0VBQ1pDLElBQUksRUFBRSxFQUFFO0VBQ1JDLE9BQU8sRUFBRSxFQUFFO0VBQ1hDLFFBQVEsRUFBRTtBQUNaLENBQUM7QUFDYyxTQUFTQyxnQkFBZ0JBLENBQUEsRUFBRztFQUFBN0IsRUFBQTtFQUN6QyxNQUFNLENBQUM4QixLQUFLLEVBQUVDLFFBQVEsQ0FBQyxHQUFHLElBQUFDLGlCQUFVLEVBQ2xDLENBQUNGLEtBQUssRUFBRUcsU0FBUyxNQUFNO0lBQ3JCLEdBQUdILEtBQUs7SUFDUixHQUFHRztFQUNMLENBQUMsQ0FBQyxFQUNGVCxVQUNGLENBQUM7RUFFRCxNQUFNO0lBQUVDLElBQUk7SUFBRUcsUUFBUTtJQUFFRCxPQUFPO0lBQUVEO0VBQUssQ0FBQyxHQUFHSSxLQUFLO0VBRS9DLFNBQVNJLE9BQU9BLENBQUEsRUFBRztJQUNqQixJQUFJQyxNQUFNLEdBQUdSLE9BQU8sS0FBSyxTQUFTLEdBQUcsSUFBSSxHQUFHLEtBQUs7SUFFakQsSUFBSSxDQUFDUSxNQUFNLEVBQUU7TUFDWEosUUFBUSxDQUFDO1FBQUVILFFBQVEsRUFBRTtNQUFXLENBQUMsQ0FBQztNQUNsQ1EsVUFBVSxDQUFDLE1BQU07UUFDZkwsUUFBUSxDQUFDO1VBQUVMLElBQUksRUFBRTtRQUFPLENBQUMsQ0FBQztNQUM1QixDQUFDLEVBQUUsR0FBRyxDQUFDO01BQ1BVLFVBQVUsQ0FBQyxNQUFNO1FBQ2ZMLFFBQVEsQ0FBQztVQUFFSixPQUFPLEVBQUU7UUFBVSxDQUFDLENBQUM7TUFDbEMsQ0FBQyxFQUFFLElBQUksQ0FBQztJQUNWLENBQUMsTUFBTTtNQUNMSSxRQUFRLENBQUNQLFVBQVUsQ0FBQztJQUN0QjtJQUNBLElBQUlhLE1BQU0sR0FBR1osSUFBSSxLQUFLLE1BQU0sR0FBRyxFQUFFLEdBQUcsTUFBTTtJQUMxQ00sUUFBUSxDQUFDO01BQUVOLElBQUksRUFBRVk7SUFBTyxDQUFDLENBQUM7RUFDNUI7RUFFQSxvQkFDRTlDLE1BQUEsQ0FBQWtCLE9BQUEsQ0FBQTZCLGFBQUE7SUFBS0MsU0FBUyxFQUFDLEtBQUs7SUFBQUMsUUFBQTtNQUFBQyxRQUFBLEVBQUExQyxZQUFBO01BQUEyQyxVQUFBO01BQUFDLFlBQUE7SUFBQTtFQUFBLGdCQUNsQnBELE1BQUEsQ0FBQWtCLE9BQUEsQ0FBQTZCLGFBQUEsQ0FBQ3hDLFNBQUEsQ0FBQVcsT0FBUTtJQUFDbUMsSUFBSSxFQUFFbEIsSUFBSSxLQUFLLE1BQU87SUFBQWMsUUFBQTtNQUFBQyxRQUFBLEVBQUExQyxZQUFBO01BQUEyQyxVQUFBO01BQUFDLFlBQUE7SUFBQTtFQUFBLENBQUUsQ0FBQyxlQUNuQ3BELE1BQUEsQ0FBQWtCLE9BQUEsQ0FBQTZCLGFBQUE7SUFBS0MsU0FBUyxFQUFDLGVBQWU7SUFBQUMsUUFBQTtNQUFBQyxRQUFBLEVBQUExQyxZQUFBO01BQUEyQyxVQUFBO01BQUFDLFlBQUE7SUFBQTtFQUFBLGdCQUM1QnBELE1BQUEsQ0FBQWtCLE9BQUEsQ0FBQTZCLGFBQUE7SUFBS0MsU0FBUyxFQUFHLFFBQU9iLElBQUssRUFBRTtJQUFDbUIsR0FBRyxFQUFFQyxzQkFBSztJQUFDQyxHQUFHLEVBQUMsTUFBTTtJQUFBUCxRQUFBO01BQUFDLFFBQUEsRUFBQTFDLFlBQUE7TUFBQTJDLFVBQUE7TUFBQUMsWUFBQTtJQUFBO0VBQUEsQ0FBRSxDQUFDLGVBQ3hEcEQsTUFBQSxDQUFBa0IsT0FBQSxDQUFBNkIsYUFBQTtJQUFRQyxTQUFTLEVBQUMsS0FBSztJQUFDUyxPQUFPLEVBQUVBLENBQUEsS0FBTWQsT0FBTyxDQUFDLENBQUU7SUFBQU0sUUFBQTtNQUFBQyxRQUFBLEVBQUExQyxZQUFBO01BQUEyQyxVQUFBO01BQUFDLFlBQUE7SUFBQTtFQUFBLGdCQUMvQ3BELE1BQUEsQ0FBQWtCLE9BQUEsQ0FBQTZCLGFBQUE7SUFBS08sR0FBRyxFQUFFSSxZQUFJO0lBQUNGLEdBQUcsRUFBQyxLQUFLO0lBQUFQLFFBQUE7TUFBQUMsUUFBQSxFQUFBMUMsWUFBQTtNQUFBMkMsVUFBQTtNQUFBQyxZQUFBO0lBQUE7RUFBQSxDQUFFLENBQ3BCLENBQUMsZUFDVHBELE1BQUEsQ0FBQWtCLE9BQUEsQ0FBQTZCLGFBQUE7SUFDRUMsU0FBUyxFQUFHLE9BQU1kLElBQUssSUFBR0csUUFBUyxJQUFHRCxPQUFRLEVBQUU7SUFDaERrQixHQUFHLEVBQUVLLGVBQU87SUFDWkgsR0FBRyxFQUFDLFNBQVM7SUFBQVAsUUFBQTtNQUFBQyxRQUFBLEVBQUExQyxZQUFBO01BQUEyQyxVQUFBO01BQUFDLFlBQUE7SUFBQTtFQUFBLENBQ2QsQ0FDRSxDQUNGLENBQUM7QUFFVjtBQUFDM0MsRUFBQSxDQTdDdUI2QixnQkFBZ0I7QUFBQXNCLEVBQUEsR0FBaEJ0QixnQkFBZ0I7QUFBQSxJQUFBc0IsRUFBQTtBQUFBQyxZQUFBLENBQUFELEVBQUEifQ==\n_csbRefreshUtils.postlude(module);} finally {  window.$RefreshReg$ = prevRefreshReg;  window.$RefreshSig$ = prevRefreshSig;}","sourceEqualsCompiled":false}},"/src/styles.css:":{"query":"","module":{"code":"body {\n  margin: 0;\n  padding: 0;\n  overflow: hidden;\n  background: #f06a19;\n}\n\n.App {\n  font-family: sans-serif;\n  text-align: center;\n}\n\n.box {\n  background: transparent;\n  border: 0;\n  margin: 0;\n  padding: 0;\n  position: absolute;\n  left: 50%;\n  transform: translate(-50%);\n  bottom: 0;\n  cursor: pointer;\n  outline: none;\n}\n\n.box img {\n  margin: -5px;\n}\n\n.kuku {\n  position: absolute;\n  left: 50%;\n  transform: translate(-50%);\n  bottom: 0;\n  z-index: -1;\n}\n\n.lid {\n  position: absolute;\n  left: 50%;\n  transform: translate(-50%);\n  bottom: 5.8em;\n}\n\n.jump {\n  animation: 1s jump infinite alternate;\n}\n\n.move {\n  animation: 1s wiggle infinite linear;\n}\n\n.rotating {\n  animation: 1s rotating;\n}\n\n.rotated {\n  transform: rotate(145deg) translate(-70%, -170px);\n}\n\n@keyframes wiggle {\n  10%,\n  90% {\n    transform: translate(-50%) translate3d(-1px, 0, 0);\n  }\n\n  20%,\n  80% {\n    transform: translate(-50%) translate3d(2px, 0, 0);\n  }\n\n  30%,\n  50%,\n  70% {\n    transform: translate(-50%) translate3d(-4px, 0, 0);\n  }\n\n  40%,\n  60% {\n    transform: translate(-50%) translate3d(4px, 0, 0);\n  }\n}\n\n@keyframes rotating {\n  0% {\n    transform: rotate(0deg) translate(-50%, 0);\n  }\n\n  100% {\n    transform: rotate(145deg) translate(-70%, -170px);\n  }\n}\n\n@keyframes jump {\n  from {\n    bottom: 0;\n  }\n  to {\n    bottom: 20em;\n  }\n}\n","path":"/src/styles.css"},"isEntry":false,"isTestFile":false,"sourceEqualsCompiled":false,"childModules":[],"dependencies":[],"initiators":["/src/GiftBoxAnimation.js:"],"transpilationDependencies":[],"transpilationInitiators":[],"asyncDependencies":[],"warnings":[],"hasMissingDependencies":false,"source":{"fileName":"/src/styles.css","compiledCode":"\nfunction createStyleNode(id, content) {\n  var styleNode =\n    document.getElementById(id) || document.createElement('style');\n\n  styleNode.setAttribute('id', id);\n  styleNode.type = 'text/css';\n  if (styleNode.styleSheet) {\n    styleNode.styleSheet.cssText = content;\n  } else {\n    styleNode.innerHTML = '';\n    styleNode.appendChild(document.createTextNode(content));\n  }\n  document.head.appendChild(styleNode);\n}\n\ncreateStyleNode(\n  \"/src/styles.css:-css\",\n  \"body {\\n  margin: 0;\\n  padding: 0;\\n  overflow: hidden;\\n  background: #f06a19;\\n}\\n\\n.App {\\n  font-family: sans-serif;\\n  text-align: center;\\n}\\n\\n.box {\\n  background: transparent;\\n  border: 0;\\n  margin: 0;\\n  padding: 0;\\n  position: absolute;\\n  left: 50%;\\n  transform: translate(-50%);\\n  bottom: 0;\\n  cursor: pointer;\\n  outline: none;\\n}\\n\\n.box img {\\n  margin: -5px;\\n}\\n\\n.kuku {\\n  position: absolute;\\n  left: 50%;\\n  transform: translate(-50%);\\n  bottom: 0;\\n  z-index: -1;\\n}\\n\\n.lid {\\n  position: absolute;\\n  left: 50%;\\n  transform: translate(-50%);\\n  bottom: 5.8em;\\n}\\n\\n.jump {\\n  animation: 1s jump infinite alternate;\\n}\\n\\n.move {\\n  animation: 1s wiggle infinite linear;\\n}\\n\\n.rotating {\\n  animation: 1s rotating;\\n}\\n\\n.rotated {\\n  transform: rotate(145deg) translate(-70%, -170px);\\n}\\n\\n@keyframes wiggle {\\n  10%,\\n  90% {\\n    transform: translate(-50%) translate3d(-1px, 0, 0);\\n  }\\n\\n  20%,\\n  80% {\\n    transform: translate(-50%) translate3d(2px, 0, 0);\\n  }\\n\\n  30%,\\n  50%,\\n  70% {\\n    transform: translate(-50%) translate3d(-4px, 0, 0);\\n  }\\n\\n  40%,\\n  60% {\\n    transform: translate(-50%) translate3d(4px, 0, 0);\\n  }\\n}\\n\\n@keyframes rotating {\\n  0% {\\n    transform: rotate(0deg) translate(-50%, 0);\\n  }\\n\\n  100% {\\n    transform: rotate(145deg) translate(-70%, -170px);\\n  }\\n}\\n\\n@keyframes jump {\\n  from {\\n    bottom: 0;\\n  }\\n  to {\\n    bottom: 20em;\\n  }\\n}\\n\"\n);\n\nmodule.hot.accept()\n","sourceEqualsCompiled":false}},"/src/confetti/confetti.scss:":{"query":"","module":{"code":"\n\n.confetti {\n  width: 440px;\n  margin:500px auto 0;\n  text-align: center;\n  padding: 10px 0;\n  cursor: pointer;\n  position: absolute;\n  bottom:4em;\n  left :50%;\n  transform:translate(-50%);\n\n  p {\n    position: absolute;\n    display: block;\n    left: 50%;\n    bottom: 0;\n    width: 5px;\n    height: 8px;\n    opacity: 0.8;\n  }\n &.animated {\n    @for $p from 1 through 200 {\n      p:nth-of-type(#{$p}) {\n        transform:  skewY(random(50)+deg) \n          rotate(random(360)+deg) \n          translate(random(100) + px, random(500) * -5 + px) scale(random(5)/10);\n        background: hsla(random(360),100%,50%,1);\n        animation:2s bang infinite;\n        animation-delay: random(5)/20+s;\n        bottom:random(10)+px;\n        opacity: 0.3;\n      }\n    }\n  }\n}\n\n@keyframes bang {\n  from {\n    transform: translate3d(0,0,0);\n    opacity: 1;\n  }\n}","path":"/src/confetti/confetti.scss"},"isEntry":false,"isTestFile":false,"sourceEqualsCompiled":false,"childModules":[],"dependencies":[],"initiators":["/src/confetti/Confetti.js:"],"transpilationDependencies":[],"transpilationInitiators":[],"asyncDependencies":[],"warnings":[],"hasMissingDependencies":false,"source":{"fileName":"/src/confetti/confetti.scss","compiledCode":"\nfunction createStyleNode(id, content) {\n  var styleNode =\n    document.getElementById(id) || document.createElement('style');\n\n  styleNode.setAttribute('id', id);\n  styleNode.type = 'text/css';\n  if (styleNode.styleSheet) {\n    styleNode.styleSheet.cssText = content;\n  } else {\n    styleNode.innerHTML = '';\n    styleNode.appendChild(document.createTextNode(content));\n  }\n  document.head.appendChild(styleNode);\n}\n\ncreateStyleNode(\n  \"/src/confetti/confetti.scss:-css\",\n  \".confetti {\\n  width: 440px;\\n  margin: 500px auto 0;\\n  text-align: center;\\n  padding: 10px 0;\\n  cursor: pointer;\\n  position: absolute;\\n  bottom: 4em;\\n  left: 50%;\\n  transform: translate(-50%);\\n}\\n.confetti p {\\n  position: absolute;\\n  display: block;\\n  left: 50%;\\n  bottom: 0;\\n  width: 5px;\\n  height: 8px;\\n  opacity: 0.8;\\n}\\n.confetti.animated p:nth-of-type(1) {\\n  transform: skewY(1deg) rotate(337deg) translate(8px, -380px) scale(0.4);\\n  background: #ff00e1;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.05s;\\n  bottom: 2px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(2) {\\n  transform: skewY(7deg) rotate(212deg) translate(4px, -1395px) scale(0.4);\\n  background: #ffbb00;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.15s;\\n  bottom: 10px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(3) {\\n  transform: skewY(10deg) rotate(165deg) translate(81px, -2100px) scale(0.3);\\n  background: #ffbf00;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.05s;\\n  bottom: 2px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(4) {\\n  transform: skewY(38deg) rotate(321deg) translate(39px, -1145px) scale(0.1);\\n  background: #00ff33;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.05s;\\n  bottom: 1px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(5) {\\n  transform: skewY(3deg) rotate(19deg) translate(31px, -90px) scale(0.2);\\n  background: #ff00cc;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.15s;\\n  bottom: 8px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(6) {\\n  transform: skewY(12deg) rotate(189deg) translate(72px, -2085px) scale(0.5);\\n  background: #ffbb00;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.1s;\\n  bottom: 2px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(7) {\\n  transform: skewY(46deg) rotate(278deg) translate(16px, -415px) scale(0.1);\\n  background: #00ff04;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.1s;\\n  bottom: 8px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(8) {\\n  transform: skewY(15deg) rotate(64deg) translate(29px, -1025px) scale(0.3);\\n  background: #9dff00;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.1s;\\n  bottom: 9px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(9) {\\n  transform: skewY(17deg) rotate(358deg) translate(24px, -105px) scale(0.3);\\n  background: #00ffa2;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.1s;\\n  bottom: 9px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(10) {\\n  transform: skewY(12deg) rotate(289deg) translate(73px, -1490px) scale(0.4);\\n  background: #55ff00;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.05s;\\n  bottom: 2px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(11) {\\n  transform: skewY(28deg) rotate(312deg) translate(98px, -1480px) scale(0.5);\\n  background: #ff0048;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.25s;\\n  bottom: 9px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(12) {\\n  transform: skewY(33deg) rotate(86deg) translate(100px, -750px) scale(0.4);\\n  background: #00ff2f;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.1s;\\n  bottom: 5px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(13) {\\n  transform: skewY(28deg) rotate(192deg) translate(68px, -1305px) scale(0.1);\\n  background: #ff0004;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.05s;\\n  bottom: 7px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(14) {\\n  transform: skewY(15deg) rotate(125deg) translate(18px, -1115px) scale(0.5);\\n  background: #8400ff;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.25s;\\n  bottom: 3px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(15) {\\n  transform: skewY(21deg) rotate(352deg) translate(24px, -2490px) scale(0.4);\\n  background: yellow;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.1s;\\n  bottom: 4px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(16) {\\n  transform: skewY(24deg) rotate(12deg) translate(80px, -860px) scale(0.2);\\n  background: #2f00ff;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.25s;\\n  bottom: 4px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(17) {\\n  transform: skewY(10deg) rotate(360deg) translate(27px, -495px) scale(0.4);\\n  background: #00ffdd;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.2s;\\n  bottom: 3px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(18) {\\n  transform: skewY(14deg) rotate(79deg) translate(32px, -970px) scale(0.3);\\n  background: #1500ff;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.2s;\\n  bottom: 3px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(19) {\\n  transform: skewY(35deg) rotate(182deg) translate(75px, -1690px) scale(0.5);\\n  background: #ff00ee;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.15s;\\n  bottom: 9px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(20) {\\n  transform: skewY(34deg) rotate(319deg) translate(68px, -1915px) scale(0.3);\\n  background: #ff0d00;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.2s;\\n  bottom: 6px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(21) {\\n  transform: skewY(50deg) rotate(262deg) translate(73px, -2375px) scale(0.3);\\n  background: #ea00ff;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.15s;\\n  bottom: 1px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(22) {\\n  transform: skewY(32deg) rotate(34deg) translate(42px, -2465px) scale(0.2);\\n  background: #95ff00;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.15s;\\n  bottom: 2px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(23) {\\n  transform: skewY(49deg) rotate(177deg) translate(69px, -760px) scale(0.1);\\n  background: #ff00b3;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.15s;\\n  bottom: 4px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(24) {\\n  transform: skewY(43deg) rotate(338deg) translate(45px, -170px) scale(0.2);\\n  background: #00ff99;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.25s;\\n  bottom: 5px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(25) {\\n  transform: skewY(41deg) rotate(306deg) translate(5px, -1210px) scale(0.5);\\n  background: blue;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.05s;\\n  bottom: 1px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(26) {\\n  transform: skewY(10deg) rotate(354deg) translate(37px, -330px) scale(0.3);\\n  background: #c4ff00;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.25s;\\n  bottom: 1px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(27) {\\n  transform: skewY(34deg) rotate(176deg) translate(5px, -1410px) scale(0.1);\\n  background: #c4ff00;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.25s;\\n  bottom: 2px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(28) {\\n  transform: skewY(26deg) rotate(326deg) translate(11px, -1960px) scale(0.5);\\n  background: #3300ff;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.05s;\\n  bottom: 6px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(29) {\\n  transform: skewY(23deg) rotate(145deg) translate(41px, -820px) scale(0.5);\\n  background: #e100ff;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.15s;\\n  bottom: 4px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(30) {\\n  transform: skewY(1deg) rotate(33deg) translate(1px, -2320px) scale(0.2);\\n  background: #0084ff;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.2s;\\n  bottom: 5px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(31) {\\n  transform: skewY(7deg) rotate(293deg) translate(32px, -725px) scale(0.3);\\n  background: #00aaff;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.2s;\\n  bottom: 4px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(32) {\\n  transform: skewY(10deg) rotate(126deg) translate(83px, -2230px) scale(0.4);\\n  background: #ff0009;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.2s;\\n  bottom: 7px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(33) {\\n  transform: skewY(26deg) rotate(27deg) translate(74px, -5px) scale(0.2);\\n  background: #d0ff00;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.1s;\\n  bottom: 7px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(34) {\\n  transform: skewY(33deg) rotate(212deg) translate(36px, -1090px) scale(0.2);\\n  background: #2b00ff;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.15s;\\n  bottom: 3px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(35) {\\n  transform: skewY(36deg) rotate(206deg) translate(44px, -2265px) scale(0.4);\\n  background: #8800ff;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.2s;\\n  bottom: 9px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(36) {\\n  transform: skewY(4deg) rotate(99deg) translate(39px, -330px) scale(0.2);\\n  background: #0011ff;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.2s;\\n  bottom: 7px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(37) {\\n  transform: skewY(11deg) rotate(272deg) translate(82px, -1925px) scale(0.3);\\n  background: #00ff4d;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.05s;\\n  bottom: 4px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(38) {\\n  transform: skewY(1deg) rotate(136deg) translate(38px, -1850px) scale(0.2);\\n  background: #ff00bb;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.1s;\\n  bottom: 1px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(39) {\\n  transform: skewY(29deg) rotate(1deg) translate(99px, -2395px) scale(0.3);\\n  background: #00bbff;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.05s;\\n  bottom: 8px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(40) {\\n  transform: skewY(41deg) rotate(241deg) translate(4px, -1590px) scale(0.5);\\n  background: #00ff51;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.25s;\\n  bottom: 8px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(41) {\\n  transform: skewY(4deg) rotate(189deg) translate(97px, -920px) scale(0.5);\\n  background: #0077ff;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.2s;\\n  bottom: 4px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(42) {\\n  transform: skewY(40deg) rotate(302deg) translate(42px, -1460px) scale(0.4);\\n  background: #0011ff;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.25s;\\n  bottom: 10px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(43) {\\n  transform: skewY(25deg) rotate(100deg) translate(35px, -1060px) scale(0.5);\\n  background: #6f00ff;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.15s;\\n  bottom: 1px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(44) {\\n  transform: skewY(41deg) rotate(282deg) translate(68px, -850px) scale(0.5);\\n  background: #1eff00;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.2s;\\n  bottom: 6px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(45) {\\n  transform: skewY(14deg) rotate(3deg) translate(58px, -1385px) scale(0.2);\\n  background: #0091ff;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.2s;\\n  bottom: 7px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(46) {\\n  transform: skewY(9deg) rotate(26deg) translate(33px, -2000px) scale(0.3);\\n  background: #ff1a00;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.05s;\\n  bottom: 10px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(47) {\\n  transform: skewY(38deg) rotate(138deg) translate(51px, -1145px) scale(0.3);\\n  background: #00ff3c;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.25s;\\n  bottom: 5px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(48) {\\n  transform: skewY(17deg) rotate(60deg) translate(94px, -970px) scale(0.3);\\n  background: #ffb300;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.25s;\\n  bottom: 4px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(49) {\\n  transform: skewY(40deg) rotate(126deg) translate(81px, -1355px) scale(0.3);\\n  background: #ff8400;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.2s;\\n  bottom: 4px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(50) {\\n  transform: skewY(30deg) rotate(143deg) translate(21px, -1160px) scale(0.1);\\n  background: #00fff2;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.05s;\\n  bottom: 8px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(51) {\\n  transform: skewY(29deg) rotate(247deg) translate(88px, -2005px) scale(0.1);\\n  background: #9100ff;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.1s;\\n  bottom: 10px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(52) {\\n  transform: skewY(24deg) rotate(252deg) translate(39px, -2335px) scale(0.5);\\n  background: #ff8000;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.25s;\\n  bottom: 10px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(53) {\\n  transform: skewY(27deg) rotate(170deg) translate(75px, -645px) scale(0.1);\\n  background: #00e1ff;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.1s;\\n  bottom: 1px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(54) {\\n  transform: skewY(16deg) rotate(79deg) translate(93px, -1120px) scale(0.4);\\n  background: #ff0009;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.1s;\\n  bottom: 4px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(55) {\\n  transform: skewY(27deg) rotate(206deg) translate(82px, -180px) scale(0.5);\\n  background: #ff000d;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.25s;\\n  bottom: 1px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(56) {\\n  transform: skewY(21deg) rotate(118deg) translate(77px, -2110px) scale(0.2);\\n  background: #00aaff;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.1s;\\n  bottom: 3px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(57) {\\n  transform: skewY(3deg) rotate(319deg) translate(16px, -2120px) scale(0.3);\\n  background: #ff0095;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.05s;\\n  bottom: 4px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(58) {\\n  transform: skewY(9deg) rotate(193deg) translate(94px, -2285px) scale(0.1);\\n  background: #00ffdd;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.1s;\\n  bottom: 4px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(59) {\\n  transform: skewY(8deg) rotate(229deg) translate(41px, -1020px) scale(0.2);\\n  background: #44ff00;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.1s;\\n  bottom: 6px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(60) {\\n  transform: skewY(46deg) rotate(140deg) translate(82px, -1230px) scale(0.4);\\n  background: #c400ff;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.25s;\\n  bottom: 10px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(61) {\\n  transform: skewY(5deg) rotate(108deg) translate(99px, -885px) scale(0.1);\\n  background: #00f2ff;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.25s;\\n  bottom: 9px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(62) {\\n  transform: skewY(38deg) rotate(233deg) translate(53px, -1410px) scale(0.4);\\n  background: #09ff00;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.25s;\\n  bottom: 7px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(63) {\\n  transform: skewY(8deg) rotate(89deg) translate(63px, -1350px) scale(0.5);\\n  background: #0091ff;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.2s;\\n  bottom: 2px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(64) {\\n  transform: skewY(28deg) rotate(10deg) translate(6px, -1945px) scale(0.2);\\n  background: #ff005e;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.05s;\\n  bottom: 7px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(65) {\\n  transform: skewY(44deg) rotate(289deg) translate(64px, -160px) scale(0.1);\\n  background: #ff0033;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.05s;\\n  bottom: 2px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(66) {\\n  transform: skewY(9deg) rotate(312deg) translate(39px, -70px) scale(0.1);\\n  background: #4400ff;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.1s;\\n  bottom: 8px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(67) {\\n  transform: skewY(47deg) rotate(92deg) translate(70px, -1475px) scale(0.2);\\n  background: #00ff95;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.15s;\\n  bottom: 2px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(68) {\\n  transform: skewY(1deg) rotate(67deg) translate(35px, -320px) scale(0.3);\\n  background: #ff0091;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.1s;\\n  bottom: 10px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(69) {\\n  transform: skewY(16deg) rotate(358deg) translate(29px, -1500px) scale(0.5);\\n  background: #8400ff;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.1s;\\n  bottom: 8px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(70) {\\n  transform: skewY(29deg) rotate(281deg) translate(64px, -335px) scale(0.2);\\n  background: #ff0040;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.15s;\\n  bottom: 8px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(71) {\\n  transform: skewY(15deg) rotate(84deg) translate(53px, -340px) scale(0.5);\\n  background: #00fff7;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.2s;\\n  bottom: 7px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(72) {\\n  transform: skewY(16deg) rotate(14deg) translate(10px, -1130px) scale(0.2);\\n  background: #00fbff;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.1s;\\n  bottom: 2px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(73) {\\n  transform: skewY(20deg) rotate(30deg) translate(25px, -1905px) scale(0.4);\\n  background: #ff007b;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.2s;\\n  bottom: 9px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(74) {\\n  transform: skewY(26deg) rotate(231deg) translate(29px, -445px) scale(0.1);\\n  background: #f700ff;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.2s;\\n  bottom: 10px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(75) {\\n  transform: skewY(16deg) rotate(328deg) translate(47px, -2405px) scale(0.1);\\n  background: #ff00d5;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.25s;\\n  bottom: 6px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(76) {\\n  transform: skewY(39deg) rotate(211deg) translate(95px, -940px) scale(0.1);\\n  background: #9dff00;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.2s;\\n  bottom: 6px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(77) {\\n  transform: skewY(4deg) rotate(104deg) translate(65px, -1670px) scale(0.1);\\n  background: #001eff;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.05s;\\n  bottom: 6px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(78) {\\n  transform: skewY(25deg) rotate(360deg) translate(83px, -1725px) scale(0.5);\\n  background: #00fbff;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.25s;\\n  bottom: 2px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(79) {\\n  transform: skewY(46deg) rotate(332deg) translate(85px, -1310px) scale(0.3);\\n  background: #ff00c4;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.15s;\\n  bottom: 2px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(80) {\\n  transform: skewY(22deg) rotate(298deg) translate(91px, -2165px) scale(0.3);\\n  background: #009dff;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.1s;\\n  bottom: 2px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(81) {\\n  transform: skewY(18deg) rotate(322deg) translate(26px, -690px) scale(0.5);\\n  background: #ffe600;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.15s;\\n  bottom: 4px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(82) {\\n  transform: skewY(45deg) rotate(274deg) translate(68px, -240px) scale(0.3);\\n  background: #00ff37;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.15s;\\n  bottom: 3px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(83) {\\n  transform: skewY(10deg) rotate(248deg) translate(88px, -350px) scale(0.2);\\n  background: #0033ff;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.25s;\\n  bottom: 7px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(84) {\\n  transform: skewY(8deg) rotate(62deg) translate(21px, -1435px) scale(0.4);\\n  background: #00ff33;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.15s;\\n  bottom: 10px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(85) {\\n  transform: skewY(6deg) rotate(191deg) translate(27px, -1605px) scale(0.1);\\n  background: #ffd900;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.15s;\\n  bottom: 9px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(86) {\\n  transform: skewY(9deg) rotate(269deg) translate(27px, -1655px) scale(0.4);\\n  background: #ffae00;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.05s;\\n  bottom: 4px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(87) {\\n  transform: skewY(4deg) rotate(171deg) translate(46px, -1065px) scale(0.4);\\n  background: #ffd000;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.05s;\\n  bottom: 8px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(88) {\\n  transform: skewY(23deg) rotate(300deg) translate(44px, -560px) scale(0.1);\\n  background: #5100ff;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.15s;\\n  bottom: 5px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(89) {\\n  transform: skewY(22deg) rotate(300deg) translate(32px, -800px) scale(0.3);\\n  background: #eaff00;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.15s;\\n  bottom: 9px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(90) {\\n  transform: skewY(48deg) rotate(160deg) translate(29px, -1730px) scale(0.5);\\n  background: #e600ff;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.15s;\\n  bottom: 9px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(91) {\\n  transform: skewY(23deg) rotate(275deg) translate(33px, -1145px) scale(0.5);\\n  background: #00ffd9;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.05s;\\n  bottom: 5px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(92) {\\n  transform: skewY(29deg) rotate(26deg) translate(77px, -1575px) scale(0.5);\\n  background: #ff7700;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.15s;\\n  bottom: 10px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(93) {\\n  transform: skewY(6deg) rotate(211deg) translate(46px, -2245px) scale(0.1);\\n  background: #d0ff00;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.25s;\\n  bottom: 1px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(94) {\\n  transform: skewY(7deg) rotate(28deg) translate(82px, -115px) scale(0.5);\\n  background: #00ff7b;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.2s;\\n  bottom: 2px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(95) {\\n  transform: skewY(5deg) rotate(276deg) translate(97px, -335px) scale(0.5);\\n  background: #ff6a00;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.2s;\\n  bottom: 1px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(96) {\\n  transform: skewY(5deg) rotate(91deg) translate(17px, -50px) scale(0.5);\\n  background: #009dff;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.05s;\\n  bottom: 1px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(97) {\\n  transform: skewY(17deg) rotate(290deg) translate(24px, -1960px) scale(0.3);\\n  background: #00ff62;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.1s;\\n  bottom: 5px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(98) {\\n  transform: skewY(2deg) rotate(193deg) translate(56px, -2350px) scale(0.1);\\n  background: #00ffe6;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.25s;\\n  bottom: 3px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(99) {\\n  transform: skewY(40deg) rotate(260deg) translate(24px, -1195px) scale(0.5);\\n  background: #ff0037;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.2s;\\n  bottom: 3px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(100) {\\n  transform: skewY(12deg) rotate(226deg) translate(4px, -2190px) scale(0.3);\\n  background: #ff0900;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.2s;\\n  bottom: 2px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(101) {\\n  transform: skewY(4deg) rotate(227deg) translate(64px, -1795px) scale(0.4);\\n  background: #ff00a2;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.15s;\\n  bottom: 3px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(102) {\\n  transform: skewY(4deg) rotate(235deg) translate(50px, -1810px) scale(0.5);\\n  background: #ff3c00;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.15s;\\n  bottom: 9px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(103) {\\n  transform: skewY(10deg) rotate(310deg) translate(74px, -410px) scale(0.4);\\n  background: #eaff00;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.1s;\\n  bottom: 8px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(104) {\\n  transform: skewY(12deg) rotate(176deg) translate(71px, -1415px) scale(0.2);\\n  background: #ff00b7;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.05s;\\n  bottom: 7px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(105) {\\n  transform: skewY(38deg) rotate(15deg) translate(85px, -2500px) scale(0.3);\\n  background: #00ffe6;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.2s;\\n  bottom: 4px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(106) {\\n  transform: skewY(41deg) rotate(356deg) translate(1px, -330px) scale(0.5);\\n  background: #ff5900;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.15s;\\n  bottom: 1px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(107) {\\n  transform: skewY(41deg) rotate(20deg) translate(51px, -2215px) scale(0.5);\\n  background: #00ffee;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.25s;\\n  bottom: 2px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(108) {\\n  transform: skewY(50deg) rotate(15deg) translate(72px, -1255px) scale(0.2);\\n  background: #0009ff;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.2s;\\n  bottom: 3px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(109) {\\n  transform: skewY(41deg) rotate(97deg) translate(44px, -1975px) scale(0.1);\\n  background: #00f7ff;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.15s;\\n  bottom: 7px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(110) {\\n  transform: skewY(5deg) rotate(145deg) translate(73px, -980px) scale(0.5);\\n  background: #7700ff;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.2s;\\n  bottom: 3px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(111) {\\n  transform: skewY(19deg) rotate(312deg) translate(88px, -45px) scale(0.4);\\n  background: #ff0015;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.1s;\\n  bottom: 4px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(112) {\\n  transform: skewY(17deg) rotate(39deg) translate(21px, -1875px) scale(0.3);\\n  background: #1eff00;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.05s;\\n  bottom: 6px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(113) {\\n  transform: skewY(14deg) rotate(68deg) translate(61px, -1275px) scale(0.4);\\n  background: #ff006a;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.2s;\\n  bottom: 4px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(114) {\\n  transform: skewY(14deg) rotate(258deg) translate(55px, -1710px) scale(0.5);\\n  background: #ff0066;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.25s;\\n  bottom: 9px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(115) {\\n  transform: skewY(36deg) rotate(257deg) translate(93px, -80px) scale(0.2);\\n  background: #00ff66;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.05s;\\n  bottom: 10px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(116) {\\n  transform: skewY(12deg) rotate(27deg) translate(22px, -350px) scale(0.1);\\n  background: #a6ff00;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.2s;\\n  bottom: 5px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(117) {\\n  transform: skewY(27deg) rotate(51deg) translate(9px, -610px) scale(0.4);\\n  background: #2fff00;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.15s;\\n  bottom: 8px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(118) {\\n  transform: skewY(12deg) rotate(97deg) translate(1px, -440px) scale(0.2);\\n  background: #0059ff;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.15s;\\n  bottom: 9px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(119) {\\n  transform: skewY(1deg) rotate(95deg) translate(25px, -2200px) scale(0.1);\\n  background: #ff0044;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.05s;\\n  bottom: 8px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(120) {\\n  transform: skewY(13deg) rotate(284deg) translate(67px, -420px) scale(0.1);\\n  background: #ff3c00;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.1s;\\n  bottom: 5px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(121) {\\n  transform: skewY(39deg) rotate(107deg) translate(70px, -2135px) scale(0.3);\\n  background: #4400ff;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.15s;\\n  bottom: 10px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(122) {\\n  transform: skewY(22deg) rotate(275deg) translate(41px, -260px) scale(0.3);\\n  background: #ffd500;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.2s;\\n  bottom: 2px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(123) {\\n  transform: skewY(16deg) rotate(50deg) translate(16px, -1910px) scale(0.2);\\n  background: #ea00ff;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.1s;\\n  bottom: 8px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(124) {\\n  transform: skewY(22deg) rotate(132deg) translate(14px, -1310px) scale(0.4);\\n  background: #ffbf00;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.2s;\\n  bottom: 9px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(125) {\\n  transform: skewY(18deg) rotate(293deg) translate(5px, -1175px) scale(0.4);\\n  background: #d500ff;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.15s;\\n  bottom: 3px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(126) {\\n  transform: skewY(27deg) rotate(353deg) translate(82px, -810px) scale(0.2);\\n  background: #00ff37;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.1s;\\n  bottom: 3px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(127) {\\n  transform: skewY(12deg) rotate(319deg) translate(88px, -890px) scale(0.1);\\n  background: #ff0077;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.15s;\\n  bottom: 1px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(128) {\\n  transform: skewY(10deg) rotate(15deg) translate(6px, -1025px) scale(0.1);\\n  background: #006aff;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.05s;\\n  bottom: 6px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(129) {\\n  transform: skewY(46deg) rotate(231deg) translate(34px, -2380px) scale(0.5);\\n  background: #ffa200;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.1s;\\n  bottom: 3px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(130) {\\n  transform: skewY(29deg) rotate(265deg) translate(75px, -245px) scale(0.1);\\n  background: #ff0015;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.25s;\\n  bottom: 1px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(131) {\\n  transform: skewY(44deg) rotate(358deg) translate(20px, -300px) scale(0.5);\\n  background: #ff00b7;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.1s;\\n  bottom: 2px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(132) {\\n  transform: skewY(30deg) rotate(53deg) translate(90px, -155px) scale(0.4);\\n  background: #bbff00;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.1s;\\n  bottom: 6px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(133) {\\n  transform: skewY(20deg) rotate(299deg) translate(36px, -1630px) scale(0.5);\\n  background: #ff0400;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.15s;\\n  bottom: 6px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(134) {\\n  transform: skewY(34deg) rotate(199deg) translate(30px, -735px) scale(0.1);\\n  background: #d900ff;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.15s;\\n  bottom: 8px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(135) {\\n  transform: skewY(45deg) rotate(14deg) translate(3px, -1965px) scale(0.2);\\n  background: #ff0077;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.05s;\\n  bottom: 6px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(136) {\\n  transform: skewY(2deg) rotate(195deg) translate(64px, -5px) scale(0.2);\\n  background: #00fffb;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.1s;\\n  bottom: 3px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(137) {\\n  transform: skewY(11deg) rotate(328deg) translate(39px, -125px) scale(0.3);\\n  background: #ff00d0;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.15s;\\n  bottom: 2px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(138) {\\n  transform: skewY(18deg) rotate(184deg) translate(98px, -635px) scale(0.5);\\n  background: #ff0066;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.2s;\\n  bottom: 1px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(139) {\\n  transform: skewY(31deg) rotate(10deg) translate(58px, -190px) scale(0.4);\\n  background: #73ff00;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.25s;\\n  bottom: 10px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(140) {\\n  transform: skewY(39deg) rotate(191deg) translate(22px, -610px) scale(0.3);\\n  background: #ff0073;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.1s;\\n  bottom: 7px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(141) {\\n  transform: skewY(10deg) rotate(36deg) translate(14px, -555px) scale(0.3);\\n  background: #ff0051;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.15s;\\n  bottom: 6px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(142) {\\n  transform: skewY(8deg) rotate(26deg) translate(4px, -2405px) scale(0.2);\\n  background: #ff0095;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.15s;\\n  bottom: 9px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(143) {\\n  transform: skewY(5deg) rotate(44deg) translate(70px, -2290px) scale(0.2);\\n  background: #4d00ff;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.1s;\\n  bottom: 4px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(144) {\\n  transform: skewY(39deg) rotate(216deg) translate(23px, -880px) scale(0.2);\\n  background: #00ffae;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.2s;\\n  bottom: 3px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(145) {\\n  transform: skewY(28deg) rotate(249deg) translate(2px, -1310px) scale(0.4);\\n  background: #62ff00;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.2s;\\n  bottom: 4px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(146) {\\n  transform: skewY(8deg) rotate(105deg) translate(27px, -1010px) scale(0.1);\\n  background: #00c4ff;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.05s;\\n  bottom: 1px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(147) {\\n  transform: skewY(39deg) rotate(86deg) translate(24px, -1120px) scale(0.4);\\n  background: #ff0011;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.2s;\\n  bottom: 2px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(148) {\\n  transform: skewY(47deg) rotate(282deg) translate(49px, -2480px) scale(0.4);\\n  background: #ff9100;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.25s;\\n  bottom: 10px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(149) {\\n  transform: skewY(32deg) rotate(162deg) translate(16px, -2245px) scale(0.2);\\n  background: #00ff15;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.1s;\\n  bottom: 7px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(150) {\\n  transform: skewY(10deg) rotate(31deg) translate(51px, -515px) scale(0.3);\\n  background: #00d9ff;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.15s;\\n  bottom: 1px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(151) {\\n  transform: skewY(39deg) rotate(324deg) translate(15px, -1610px) scale(0.1);\\n  background: #00ff22;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.2s;\\n  bottom: 5px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(152) {\\n  transform: skewY(19deg) rotate(303deg) translate(47px, -2450px) scale(0.5);\\n  background: #ff008c;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.25s;\\n  bottom: 5px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(153) {\\n  transform: skewY(7deg) rotate(301deg) translate(14px, -1550px) scale(0.2);\\n  background: #ff007b;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.15s;\\n  bottom: 6px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(154) {\\n  transform: skewY(12deg) rotate(83deg) translate(27px, -1190px) scale(0.2);\\n  background: #00ff6f;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.1s;\\n  bottom: 4px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(155) {\\n  transform: skewY(17deg) rotate(309deg) translate(11px, -1605px) scale(0.1);\\n  background: #00bbff;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.15s;\\n  bottom: 9px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(156) {\\n  transform: skewY(1deg) rotate(298deg) translate(35px, -90px) scale(0.3);\\n  background: #7700ff;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.15s;\\n  bottom: 3px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(157) {\\n  transform: skewY(9deg) rotate(181deg) translate(67px, -235px) scale(0.1);\\n  background: #d500ff;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.1s;\\n  bottom: 3px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(158) {\\n  transform: skewY(41deg) rotate(7deg) translate(28px, -2215px) scale(0.5);\\n  background: #55ff00;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.15s;\\n  bottom: 5px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(159) {\\n  transform: skewY(50deg) rotate(296deg) translate(5px, -1355px) scale(0.4);\\n  background: #ff9500;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.2s;\\n  bottom: 4px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(160) {\\n  transform: skewY(7deg) rotate(39deg) translate(32px, -2465px) scale(0.1);\\n  background: #0033ff;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.25s;\\n  bottom: 9px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(161) {\\n  transform: skewY(30deg) rotate(120deg) translate(90px, -105px) scale(0.4);\\n  background: #48ff00;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.05s;\\n  bottom: 7px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(162) {\\n  transform: skewY(5deg) rotate(229deg) translate(42px, -1165px) scale(0.4);\\n  background: #ff0059;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.1s;\\n  bottom: 5px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(163) {\\n  transform: skewY(30deg) rotate(330deg) translate(20px, -2275px) scale(0.1);\\n  background: #5900ff;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.2s;\\n  bottom: 2px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(164) {\\n  transform: skewY(47deg) rotate(294deg) translate(77px, -575px) scale(0.3);\\n  background: #006aff;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.2s;\\n  bottom: 4px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(165) {\\n  transform: skewY(50deg) rotate(62deg) translate(7px, -150px) scale(0.2);\\n  background: #d0ff00;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.25s;\\n  bottom: 5px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(166) {\\n  transform: skewY(22deg) rotate(102deg) translate(89px, -360px) scale(0.2);\\n  background: #ffbb00;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.2s;\\n  bottom: 3px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(167) {\\n  transform: skewY(1deg) rotate(4deg) translate(30px, -1900px) scale(0.2);\\n  background: #ff5500;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.25s;\\n  bottom: 1px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(168) {\\n  transform: skewY(48deg) rotate(9deg) translate(34px, -1355px) scale(0.4);\\n  background: #00ff22;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.05s;\\n  bottom: 8px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(169) {\\n  transform: skewY(7deg) rotate(38deg) translate(82px, -1905px) scale(0.5);\\n  background: #ffae00;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.25s;\\n  bottom: 4px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(170) {\\n  transform: skewY(29deg) rotate(213deg) translate(69px, -1800px) scale(0.3);\\n  background: #00b3ff;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.2s;\\n  bottom: 8px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(171) {\\n  transform: skewY(40deg) rotate(246deg) translate(49px, -2355px) scale(0.2);\\n  background: #00ff40;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.25s;\\n  bottom: 3px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(172) {\\n  transform: skewY(36deg) rotate(42deg) translate(95px, -2335px) scale(0.4);\\n  background: #5900ff;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.05s;\\n  bottom: 3px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(173) {\\n  transform: skewY(35deg) rotate(89deg) translate(86px, -2135px) scale(0.3);\\n  background: fuchsia;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.15s;\\n  bottom: 10px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(174) {\\n  transform: skewY(3deg) rotate(303deg) translate(8px, -2080px) scale(0.4);\\n  background: #d5ff00;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.05s;\\n  bottom: 9px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(175) {\\n  transform: skewY(24deg) rotate(209deg) translate(84px, -2445px) scale(0.1);\\n  background: #0037ff;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.2s;\\n  bottom: 6px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(176) {\\n  transform: skewY(27deg) rotate(217deg) translate(6px, -2045px) scale(0.1);\\n  background: #ff9100;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.1s;\\n  bottom: 8px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(177) {\\n  transform: skewY(48deg) rotate(179deg) translate(52px, -60px) scale(0.1);\\n  background: #00c8ff;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.2s;\\n  bottom: 4px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(178) {\\n  transform: skewY(4deg) rotate(132deg) translate(29px, -925px) scale(0.3);\\n  background: #0077ff;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.25s;\\n  bottom: 5px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(179) {\\n  transform: skewY(2deg) rotate(181deg) translate(47px, -35px) scale(0.1);\\n  background: #1aff00;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.2s;\\n  bottom: 6px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(180) {\\n  transform: skewY(32deg) rotate(183deg) translate(1px, -195px) scale(0.4);\\n  background: #9d00ff;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.05s;\\n  bottom: 10px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(181) {\\n  transform: skewY(44deg) rotate(17deg) translate(42px, -720px) scale(0.4);\\n  background: #ff4000;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.2s;\\n  bottom: 10px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(182) {\\n  transform: skewY(44deg) rotate(201deg) translate(13px, -280px) scale(0.4);\\n  background: #d9ff00;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.05s;\\n  bottom: 2px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(183) {\\n  transform: skewY(49deg) rotate(142deg) translate(21px, -2330px) scale(0.4);\\n  background: #ff4400;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.2s;\\n  bottom: 10px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(184) {\\n  transform: skewY(11deg) rotate(157deg) translate(53px, -1355px) scale(0.4);\\n  background: #002fff;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.1s;\\n  bottom: 1px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(185) {\\n  transform: skewY(33deg) rotate(147deg) translate(55px, -1640px) scale(0.5);\\n  background: #00ff0d;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.05s;\\n  bottom: 7px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(186) {\\n  transform: skewY(49deg) rotate(34deg) translate(67px, -2500px) scale(0.3);\\n  background: #0040ff;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.05s;\\n  bottom: 4px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(187) {\\n  transform: skewY(22deg) rotate(160deg) translate(50px, -1055px) scale(0.3);\\n  background: #bbff00;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.25s;\\n  bottom: 9px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(188) {\\n  transform: skewY(12deg) rotate(43deg) translate(58px, -55px) scale(0.4);\\n  background: #00ff7b;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.05s;\\n  bottom: 4px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(189) {\\n  transform: skewY(33deg) rotate(137deg) translate(7px, -1335px) scale(0.2);\\n  background: #ff6600;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.05s;\\n  bottom: 7px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(190) {\\n  transform: skewY(4deg) rotate(64deg) translate(99px, -1185px) scale(0.1);\\n  background: #ffd000;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.05s;\\n  bottom: 1px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(191) {\\n  transform: skewY(37deg) rotate(161deg) translate(59px, -2200px) scale(0.2);\\n  background: #ff002f;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.05s;\\n  bottom: 4px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(192) {\\n  transform: skewY(39deg) rotate(164deg) translate(91px, -2295px) scale(0.4);\\n  background: #00ff22;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.2s;\\n  bottom: 9px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(193) {\\n  transform: skewY(3deg) rotate(328deg) translate(42px, -975px) scale(0.4);\\n  background: #5100ff;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.2s;\\n  bottom: 9px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(194) {\\n  transform: skewY(35deg) rotate(15deg) translate(15px, -1350px) scale(0.4);\\n  background: #95ff00;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.2s;\\n  bottom: 2px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(195) {\\n  transform: skewY(16deg) rotate(276deg) translate(94px, -100px) scale(0.1);\\n  background: #26ff00;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.25s;\\n  bottom: 1px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(196) {\\n  transform: skewY(23deg) rotate(52deg) translate(78px, -1730px) scale(0.1);\\n  background: #0015ff;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.1s;\\n  bottom: 1px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(197) {\\n  transform: skewY(19deg) rotate(102deg) translate(94px, -975px) scale(0.2);\\n  background: #00ff66;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.15s;\\n  bottom: 3px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(198) {\\n  transform: skewY(27deg) rotate(40deg) translate(62px, -1870px) scale(0.5);\\n  background: #00ff7b;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.2s;\\n  bottom: 9px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(199) {\\n  transform: skewY(36deg) rotate(303deg) translate(85px, -1655px) scale(0.5);\\n  background: #ff0048;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.25s;\\n  bottom: 9px;\\n  opacity: 0.3;\\n}\\n.confetti.animated p:nth-of-type(200) {\\n  transform: skewY(19deg) rotate(263deg) translate(50px, -305px) scale(0.3);\\n  background: #002bff;\\n  animation: 2s bang infinite;\\n  animation-delay: 0.1s;\\n  bottom: 1px;\\n  opacity: 0.3;\\n}\\n\\n@keyframes bang {\\n  from {\\n    transform: translate3d(0, 0, 0);\\n    opacity: 1;\\n  }\\n}\"\n);\n\nmodule.hot.accept()\n","sourceEqualsCompiled":false}},"/node_modules/csbbust/refresh-helper.js:":{"query":"","module":{"path":"/node_modules/csbbust/refresh-helper.js","parent":{"code":"import React from \"react\";\nimport ReactDOM from \"react-dom\";\n\nimport GiftBoxAnimation from \"./GiftBoxAnimation\";\n\nconst rootElement = document.getElementById(\"root\");\nReactDOM.render(\n  \u003cReact.StrictMode>\n    \u003cGiftBoxAnimation />\n  \u003c/React.StrictMode>,\n  rootElement\n);\n","path":"/src/index.js"},"code":"const RefreshRuntime = require('react-refresh/runtime');\n\nfunction debounce(fn, delay) {\n  var handle;\n  return () => {\n    clearTimeout(handle);\n    handle = setTimeout(fn, delay);\n  };\n}\n\nconst enqueueUpdate = debounce(() => {\n  try {\n    RefreshRuntime.performReactRefresh();\n  } catch (e) {\n    module.hot.decline();\n    throw e;\n  }\n}, 30);\n\nfunction isReactRefreshBoundary(moduleExports) {\n  if (Object.keys(RefreshRuntime).length === 0) {\n    return false;\n  }\n\n  if (RefreshRuntime.isLikelyComponentType(moduleExports)) {\n    return true;\n  }\n\n  if (moduleExports == null || typeof moduleExports !== 'object') {\n    /** Exit if we can't iterate over exports. */\n    return false;\n  }\n\n  let hasExports = false;\n  let areAllExportsComponents = true;\n  for (const key in moduleExports) {\n    hasExports = true;\n\n    if (key === '__esModule') {\n      continue;\n    }\n\n    const desc = Object.getOwnPropertyDescriptor(moduleExports, key);\n    if (desc && desc.get) {\n      /** Don't invoke getters as they may have side effects. */\n      return false;\n    }\n\n    const exportValue = moduleExports[key];\n    if (!RefreshRuntime.isLikelyComponentType(exportValue)) {\n      areAllExportsComponents = false;\n    }\n  }\n  \n  return hasExports && areAllExportsComponents;\n};\n\n/** When this signature changes, it's unsafe to stop at this refresh boundary. */\nfunction getRefreshBoundarySignature(moduleExports) {\n  const signature = [];\n  signature.push(RefreshRuntime.getFamilyByType(moduleExports));\n  if (moduleExports == null || typeof moduleExports !== 'object') {\n    /** Exit if we can't iterate over exports. */\n    /** (This is important for legacy environments.) */\n    return signature;\n  }\n\n  for (const key in moduleExports) {\n    if (key === '__esModule') {\n      continue;\n    }\n\n    const desc = Object.getOwnPropertyDescriptor(moduleExports, key);\n    if (desc && desc.get) {\n      continue;\n    }\n\n    const exportValue = moduleExports[key];\n    signature.push(key);\n    signature.push(RefreshRuntime.getFamilyByType(exportValue));\n  }\n\n  return signature;\n};\n\nfunction shouldInvalidateReactRefreshBoundary(\n  prevExports,\n  nextExports,\n) {\n  const prevSignature = getRefreshBoundarySignature(prevExports);\n  const nextSignature = getRefreshBoundarySignature(nextExports);\n  if (prevSignature.length !== nextSignature.length) {\n    return true;\n  }\n  \n  for (let i = 0; i \u003c nextSignature.length; i++) {\n    if (prevSignature[i] !== nextSignature[i]) {\n      return true;\n    }\n  }\n\n  return false;\n};\n\nvar registerExportsForReactRefresh = (moduleExports, moduleID) => {\n  RefreshRuntime.register(moduleExports, moduleID + ' %exports%');\n  if (moduleExports == null || typeof moduleExports !== 'object') {\n    /** Exit if we can't iterate over exports. */\n    /** (This is important for legacy environments.) */\n    return;\n  }\n  for (const key in moduleExports) {\n    const desc = Object.getOwnPropertyDescriptor(moduleExports, key);\n    if (desc && desc.get) {\n      /** Don't invoke getters as they may have side effects. */\n      continue;\n    }\n    const exportValue = moduleExports[key];\n    const typeID = moduleID + ' %exports% ' + key;\n    RefreshRuntime.register(exportValue, typeID);\n  }\n};\n\nfunction prelude(module) {\n  window.$RefreshReg$ = (type, id) => {\n    /** Note module.id is webpack-specific, this may vary in other bundlers */\n    const fullId = module.id + ' ' + id;\n    RefreshRuntime.register(type, fullId);\n  }\n    \n  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;\n}\n\nfunction postlude(module) {\n  const isHotUpdate = !!module.hot.data;\n  const prevExports = isHotUpdate ? module.hot.data.prevExports : null;\n  if (isReactRefreshBoundary(module.exports)) {\n    registerExportsForReactRefresh(module.exports, module.id);\n    const currentExports = { ...module.exports };\n\n    module.hot.dispose(function hotDisposeCallback(data) {\n      data.prevExports = currentExports;\n    });\n\n    if (isHotUpdate && shouldInvalidateReactRefreshBoundary(prevExports, currentExports)) {\n      module.hot.invalidate();\n    } else {\n      module.hot.accept();\n    }\n\n    enqueueUpdate();\n  } else if (isHotUpdate && isReactRefreshBoundary(prevExports)) {\n    module.hot.invalidate();\n  }\n}\n\nmodule.exports = {\n  enqueueUpdate,\n  isReactRefreshBoundary,\n  registerExportsForReactRefresh,\n  shouldInvalidateReactRefreshBoundary,\n  prelude,\n  postlude,\n};"},"isEntry":false,"isTestFile":false,"sourceEqualsCompiled":true,"childModules":[],"dependencies":["/node_modules/react-refresh/runtime.js:"],"initiators":["/src/index.js:","/src/GiftBoxAnimation.js:","/src/confetti/Confetti.js:"],"transpilationDependencies":[],"transpilationInitiators":[],"asyncDependencies":[],"warnings":[],"hasMissingDependencies":false,"source":null},"/node_modules/@babel/runtime/helpers/interopRequireWildcard.js:":{"query":"","module":{"path":"/node_modules/@babel/runtime/helpers/interopRequireWildcard.js","code":"var _typeof = require(\"./typeof.js\")[\"default\"];\nfunction _getRequireWildcardCache(e) {\n  if (\"function\" != typeof WeakMap) return null;\n  var r = new WeakMap(),\n    t = new WeakMap();\n  return (_getRequireWildcardCache = function _getRequireWildcardCache(e) {\n    return e ? t : r;\n  })(e);\n}\nfunction _interopRequireWildcard(e, r) {\n  if (!r && e && e.__esModule) return e;\n  if (null === e || \"object\" != _typeof(e) && \"function\" != typeof e) return {\n    \"default\": e\n  };\n  var t = _getRequireWildcardCache(r);\n  if (t && t.has(e)) return t.get(e);\n  var n = {\n      __proto__: null\n    },\n    a = Object.defineProperty && Object.getOwnPropertyDescriptor;\n  for (var u in e) if (\"default\" !== u && {}.hasOwnProperty.call(e, u)) {\n    var i = a ? Object.getOwnPropertyDescriptor(e, u) : null;\n    i && (i.get || i.set) ? Object.defineProperty(n, u, i) : n[u] = e[u];\n  }\n  return n[\"default\"] = e, t && t.set(e, n), n;\n}\nmodule.exports = _interopRequireWildcard, module.exports.__esModule = true, module.exports[\"default\"] = module.exports;","downloaded":true},"isEntry":false,"isTestFile":false,"sourceEqualsCompiled":true,"childModules":[],"dependencies":["/node_modules/@babel/runtime/helpers/typeof.js:"],"initiators":["/src/index.js:","/src/GiftBoxAnimation.js:","/src/confetti/Confetti.js:"],"transpilationDependencies":[],"transpilationInitiators":[],"asyncDependencies":[],"warnings":[],"hasMissingDependencies":false,"source":null},"/node_modules/@babel/runtime/helpers/interopRequireDefault.js:":{"query":"","module":{"path":"/node_modules/@babel/runtime/helpers/interopRequireDefault.js","code":"function _interopRequireDefault(e) {\n  return e && e.__esModule ? e : {\n    \"default\": e\n  };\n}\nmodule.exports = _interopRequireDefault, module.exports.__esModule = true, module.exports[\"default\"] = module.exports;","downloaded":true},"isEntry":false,"isTestFile":false,"sourceEqualsCompiled":true,"childModules":[],"dependencies":[],"initiators":["/src/index.js:","/src/GiftBoxAnimation.js:","/src/confetti/Confetti.js:"],"transpilationDependencies":[],"transpilationInitiators":[],"asyncDependencies":[],"warnings":[],"hasMissingDependencies":false,"source":null},"/node_modules/@babel/runtime/helpers/typeof.js:":{"query":"","module":{"path":"/node_modules/@babel/runtime/helpers/typeof.js","code":"function _typeof(o) {\n  \"@babel/helpers - typeof\";\n\n  return module.exports = _typeof = \"function\" == typeof Symbol && \"symbol\" == typeof Symbol.iterator ? function (o) {\n    return typeof o;\n  } : function (o) {\n    return o && \"function\" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? \"symbol\" : typeof o;\n  }, module.exports.__esModule = true, module.exports[\"default\"] = module.exports, _typeof(o);\n}\nmodule.exports = _typeof, module.exports.__esModule = true, module.exports[\"default\"] = module.exports;","downloaded":true},"isEntry":false,"isTestFile":false,"sourceEqualsCompiled":true,"childModules":[],"dependencies":[],"initiators":["/node_modules/@babel/runtime/helpers/interopRequireWildcard.js:"],"transpilationDependencies":[],"transpilationInitiators":[],"asyncDependencies":[],"warnings":[],"hasMissingDependencies":false,"source":null},"/node_modules/__csb/react-dom-entrypoint.js:":{"query":"","module":{"path":"/node_modules/__csb/react-dom-entrypoint.js","code":"if (typeof window !== 'undefined') {\nconst runtime = require('react-refresh/runtime');\nruntime.injectIntoGlobalHook(window);\nwindow.$RefreshReg$ = () => {};\nwindow.$RefreshSig$ = () => type => type;\n}\n"},"isEntry":true,"isTestFile":false,"sourceEqualsCompiled":true,"childModules":[],"dependencies":["/node_modules/react-refresh/runtime.js:"],"initiators":[],"transpilationDependencies":[],"transpilationInitiators":[],"asyncDependencies":[],"warnings":[],"hasMissingDependencies":false,"source":null}},"cachedPaths":{"/node_modules/__csb":{"react-refresh/runtime":"/node_modules/react-refresh/runtime.js"},"/node_modules/react-refresh":{"./cjs/react-refresh-runtime.development.js":"/node_modules/react-refresh/cjs/react-refresh-runtime.development.js"},"/src":{"/node_modules/csbbust/refresh-helper.js":"/node_modules/csbbust/refresh-helper.js","@babel/runtime/helpers/interopRequireDefault":"/node_modules/@babel/runtime/helpers/interopRequireDefault.js","react":"/node_modules/react/index.js","react-dom":"/node_modules/react-dom/index.js","./GiftBoxAnimation":"/src/GiftBoxAnimation.js","./styles.css":"/src/styles.css","./images/box.png":"/src/images/box.png","./images/box-lid.png":"/src/images/box-lid.png","./images/jump-character.png":"/src/images/jump-character.png","./confetti/Confetti":"/src/confetti/Confetti.js"},"/node_modules/csbbust":{"react-refresh/runtime":"/node_modules/react-refresh/runtime.js"},"/node_modules/react":{"./cjs/react.development.js":"/node_modules/react/cjs/react.development.js"},"/node_modules/react/cjs":{"object-assign":"/node_modules/object-assign/index.js","prop-types/checkPropTypes":"/node_modules/prop-types/checkPropTypes.js"},"/node_modules/prop-types":{"./lib/ReactPropTypesSecret":"/node_modules/prop-types/lib/ReactPropTypesSecret.js"},"/node_modules/react-dom":{"./cjs/react-dom.development.js":"/node_modules/react-dom/cjs/react-dom.development.js"},"/node_modules/react-dom/cjs":{"react":"/node_modules/react/index.js","object-assign":"/node_modules/object-assign/index.js","scheduler":"/node_modules/scheduler/index.js","prop-types/checkPropTypes":"/node_modules/prop-types/checkPropTypes.js","scheduler/tracing":"/node_modules/scheduler/tracing.js"},"/node_modules/scheduler":{"./cjs/scheduler.development.js":"/node_modules/scheduler/cjs/scheduler.development.js","./cjs/scheduler-tracing.development.js":"/node_modules/scheduler/cjs/scheduler-tracing.development.js"},"/src/confetti":{"/node_modules/csbbust/refresh-helper.js":"/node_modules/csbbust/refresh-helper.js","react":"/node_modules/react/index.js","./confetti.scss":"/src/confetti/confetti.scss"}},"version":"https://codesandbox.io/static/js/sandbox.74356d088.js","timestamp":1737802164195,"configurations":{"package":{"path":"/package.json","code":"{\n  \"name\": \"gift-box-css\",\n  \"version\": \"1.0.0\",\n  \"description\": \"css gift box confetti animation\",\n  \"keywords\": [],\n  \"main\": \"src/index.js\",\n  \"dependencies\": {\n    \"react\": \"16.12.0\",\n    \"react-dom\": \"16.12.0\",\n    \"react-scripts\": \"3.0.1\"\n  },\n  \"devDependencies\": {\n    \"typescript\": \"3.3.3\"\n  },\n  \"scripts\": {\n    \"start\": \"react-scripts start\",\n    \"build\": \"react-scripts build\",\n    \"test\": \"react-scripts test --env=jsdom\",\n    \"eject\": \"react-scripts eject\"\n  },\n  \"browserslist\": [\n    \">0.2%\",\n    \"not dead\",\n    \"not ie \u003c= 11\",\n    \"not op_mini all\"\n  ]\n}","generated":false,"parsed":{"name":"gift-box-css","version":"1.0.0","description":"css gift box confetti animation","keywords":[],"main":"src/index.js","dependencies":{"react":"16.12.0","react-dom":"16.12.0","react-scripts":"3.0.1"},"devDependencies":{"typescript":"3.3.3"},"scripts":{"start":"react-scripts start","build":"react-scripts build","test":"react-scripts test --env=jsdom","eject":"react-scripts eject"},"browserslist":[">0.2%","not dead","not ie \u003c= 11","not op_mini all"]}},"sandbox":{"path":"/sandbox.config.json","code":"{\n  \"infiniteLoopProtection\": true,\n  \"hardReloadOnChange\": false,\n  \"view\": \"browser\"\n}","generated":false,"parsed":{"infiniteLoopProtection":true,"hardReloadOnChange":false,"view":"browser"}},"now":{"path":"/vercel.json","code":"{}","generated":true,"parsed":{}},"jsconfig":{"path":"/jsconfig.json","code":"{\n  \"compilerOptions\": {\n    \"baseUrl\": \".\"\n  }\n}","generated":true,"parsed":{"compilerOptions":{"baseUrl":"."}}},"typescript":{"path":"/tsconfig.json","code":"{\n  \"compilerOptions\": {\n    \"outDir\": \"build/dist\",\n    \"module\": \"esnext\",\n    \"target\": \"es5\",\n    \"lib\": [\n      \"es6\",\n      \"dom\"\n    ],\n    \"sourceMap\": true,\n    \"allowJs\": true,\n    \"jsx\": \"react\",\n    \"moduleResolution\": \"node\",\n    \"rootDir\": \"src\",\n    \"forceConsistentCasingInFileNames\": true,\n    \"noImplicitReturns\": true,\n    \"noImplicitThis\": true,\n    \"noImplicitAny\": true,\n    \"strictNullChecks\": true,\n    \"suppressImplicitAnyIndexErrors\": true,\n    \"noUnusedLocals\": true\n  }\n}","generated":true,"parsed":{"compilerOptions":{"outDir":"build/dist","module":"esnext","target":"es5","lib":["es6","dom"],"sourceMap":true,"allowJs":true,"jsx":"react","moduleResolution":"node","rootDir":"src","forceConsistentCasingInFileNames":true,"noImplicitReturns":true,"noImplicitThis":true,"noImplicitAny":true,"strictNullChecks":true,"suppressImplicitAnyIndexErrors":true,"noUnusedLocals":true}}}},"entry":"/src/index.js","meta":{},"dependenciesQuery":"%40babel%2Fcore%407.26.7+%40babel%2Fruntime%407.26.7+node-libs-browser%402.2.1+react%4016.12.0+react-dom%4016.12.0+react-refresh%400.9.0"},
+  latestSha: "3A2AD4C35D87A6AF85D2F7C06986E83F8C791F8EB6D50C771803969092A40B47",
+  version: "https://codesandbox.io/static/js/sandbox.74356d088.js"
+};
+
+</script>
+  <script crossorigin="" type="text/javascript" src="./watermark-button.eeb14a97b.js.download"></script>
+  
+
+
+</body></html>
